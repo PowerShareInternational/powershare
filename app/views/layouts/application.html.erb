@@ -1,9 +1,14 @@
 <!DOCTYPE html>
 
-<html>
+<html class="no-js" lang="en">
 
 <head>
   <title>Powershare | <%= yield(:title) %></title>
+  <meta name="PowerShare International" content="Beta">
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -12,11 +17,16 @@
 
 <body>
 
-<%= render 'layouts/header' %>
+<!--<%= render 'layouts/header' %>-->
 
-<div class="container">
+<div class="container-fluid">
+  <%= image_tag("logo2.png", :alt => "Powershare logo", :id => "logo") %>
+	<% flash.each do |message_type, message| %>
+    	<div class="alert alert-<%= message_type %>"><%= message %></div>
+    <% end %>
 	<%= yield %>
 	<%= render 'layouts/footer' %>
+	<%= debug(params) if Rails.env.development? %>
 </div>
 
 </body>

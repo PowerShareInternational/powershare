@@ -1,5 +1,5 @@
 <% provide(:title, "Home") %>
-<div class="center jumbotron">
+<!-- <div class="center jumbotron">
   <h1>Welcome to the Sample App</h1>
 
   <h2>
@@ -11,4 +11,75 @@
   <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
 </div>
 
-<%= link_to 'http://rubyonrails.org/' %>
+<%= link_to 'http://rubyonrails.org/' %> -->
+
+<section id="topSection">
+  <div class="container-fluid">
+    <div class="row-fluid">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+        <div id="subtitleSlot">
+          <h1 class="subtitle">Your Community. Your Priority.</h1>
+          <hr>
+        </div>
+
+        <div id="selectCommunitySlot">
+          <div class="container-fluid">
+            <h2 id="registeredInText">I am registered in: </h2>
+
+            <div class="dropdown">
+              <h1></h1>
+              <button class="btn btn-primary dropdown-toggle" id="communityDropdown" type="button" data-toggle="dropdown">
+                Select available community: <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu">
+                <li class="region"><strong>Massachusetts</strong></li>
+                <li class="divider"></li>
+                <li><a href="#" title="Medford, Massachusetts">Medford</a></li>
+              </ul>
+            </div>
+
+            <h2 id="communityName"> </h2>
+            <button class="btn btn-success" id="submitButton" type="button" style= "visibility: hidden">View Community</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="aboutSection">
+  <div class="container-fluid">
+    <div class="row-fluid">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+        <div id="aboutSlot">
+              <h1 id="aboutHead"><span class="goldWord">About </span></h1>
+        </div>
+      </div>
+    </div>
+
+    <div class="row-fluid">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+        <p id="aboutText">PowerShare's mission is to help your community  prioritize goals in real time. Whether your community is a town, a city, a district, or a state, PowerShare wants to ensure that voters and elected officials have a clear and transparent idea of what they are trying to achieve. Started in Medford, Massachusetts, we look forward to serving communities across the United States and around the globe.</p>
+      </div>
+    </div>
+    
+  </div> 
+</section>
+
+<section id="contactSection">
+  <div class="container-fluid">
+    <div id="contactSlot"> 
+      <div class="row-fluid">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">      
+          <h4 class="contactHead">If you are interested in bringing PowerShare to your community, contact us at:</h4>
+          <h4 class="contactHead">571-215-6069</h4>
+          <h4 class="contactHead">or</h4>
+          <p class="contactHead"><a href="mailto:powershare.community@gmail">powershare.community@gmail.com</a></p>
+          <br>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
