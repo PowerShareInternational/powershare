@@ -4,72 +4,52 @@
 /* universal */
 
 body {
-  padding-top: 60px;
+  background-color: white;
+  font-family: "MS Sans-serif", sans-serif, Georgia;
 }
 
-section {
-  overflow: auto;
+.goldWord {
+  color: #cea600;
 }
 
-textarea {
-  resize: vertical;
+.subtitle {
+  font-weight: bold;
+  color: #6d6874;
+  font-style: italic;
 }
 
-.center {
-  text-align: center;
+#topSection {
+  background-color: white;
 }
 
-.center h1 {
-  margin-bottom: 10px;
+#aboutSection {
+  background-color: #282828;
+  color: white;
 }
 
-/* typography */
-
-h1, h2, h3, h4, h5, h6 {
-  line-height: 1;
+#contactSection {
+  background-color: #C8C8C8;
 }
 
-h1 {
-  font-size: 3em;
-  letter-spacing: -2px;
-  margin-bottom: 30px;
-  text-align: center;
+#loginSection {
+  background-color: white;
 }
-
-h2 {
-  font-size: 1.2em;
-  letter-spacing: -1px;
-  margin-bottom: 30px;
-  text-align: center;
-  font-weight: normal;
-  color: #777;
-}
-
-p {
-  font-size: 1.1em;
-  line-height: 1.7em;
-}
-
-/* header */
 
 /* footer */
 
 footer {
-  margin-top: 45px;
-  padding-top: 5px;
-  border-top: 1px solid #eaeaea;
-  color: #777;
+  border-top: 1px solid black;
 }
 
 footer a {
-  color: #555;
+  color: black;
 }
 
 footer a:hover {
-  color: #222;
+  color: gray;
 }
 
-footer small {
+footer p {
   float: left;
 }
 
@@ -80,65 +60,11 @@ footer ul {
 
 footer ul li {
   float: left;
-  margin-left: 15px;
+  display: inline;
+  margin-right: 15px;
 }
 
-/* miscellaneous */
-
-@mixin box_sizing {
-  -moz-box-sizing:    border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing:         border-box;
-}
-
-.debug_dump {
-  clear: both;
-  float: left;
-  width: 100%;
-  margin-top: 45px;
-  @include box_sizing;
-}
-
-/* sidebar */
-
-aside {
-  section.user_info {
-    margin-top: 20px;
-  }
-  section {
-    padding: 10px 0;
-    margin-top: 20px;
-    &:first-child {
-      border: 0;
-      padding-top: 0;
-    }
-    span {
-      display: block;
-      margin-bottom: 3px;
-      line-height: 1;
-    }
-    h1 {
-      font-size: 1.4em;
-      text-align: left;
-      letter-spacing: -1px;
-      margin-bottom: 3px;
-      margin-top: 0px;
-    }
-  }
-}
-
-/* forms */
-
-input, textarea, select, .uneditable-input {
-  border: 1px solid #bbb;
-  width: 100%;
-  margin-bottom: 15px;
-  @include box_sizing;
-}
-
-input {
-  height: auto !important;
-}
+/* form errors */
 
 #error_explanation {
   color: red;
@@ -155,37 +81,270 @@ input {
   }
 }
 
-.checkbox {
-  margin-top: -10px;
-  margin-bottom: 10px;
-  span {
-    margin-left: 20px;
-    font-weight: normal;
-  }
-}
-
-#session_remember_me {
-  width: auto;
-  margin-left: 0;
-}
-
-/* Users index */
-
-.users {
-  list-style: none;
-  margin: 0;
-  li {
-    overflow: auto;
-    padding: 10px 0;
-    border-bottom: 1px solid $gray-lighter;
-  }
-}
-
 /* CUSTOM */
 
-#logo {
-  height: auto;
-  width: auto;
-  max-height: 700px;
-  max-width: 700px;
+/*==================================================
+=            Bootstrap 3 Media Queries             =
+==================================================*/
+
+/*==========  Mobile First Method  ==========*/
+/* iPhone4 (portrait) */
+@media only screen and (min-width: 320px) {
+
+  #logo {
+    height: auto;
+    width: auto;
+    max-height: 285px;
+    max-width: 285px;
+    margin-top: 10%;
+  }
+
+  .subtitle {
+    font-size: 120%;
+  }
+
+  #loginText {
+    font-size: 250%;
+    margin-top: -5%;
+  }
+
+  #loginSlot {
+    margin-top: 5%;
+  }
+
+  .loginLabel {
+    margin-top: 5%;
+    font-weight: bold;
+  }
+
+  #loginButton {
+    margin-bottom: 5%;
+    font-weight: bold;
+  }
+
+  #aboutHead {
+    font-size: 225%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+  }
+
+  #aboutText {
+    font-size: 115%;
+    margin-bottom: 5%;
+  }
+
+}
+
+/* iphone6 (portrait) */
+@media only screen and (min-width: 360px) {
+
+  #logo {
+      height: auto;
+      width: auto;
+      max-height: 335px;
+      max-width: 335px;
+  }
+
+  .subtitle {
+      font-size: 150%;
+  }
+
+  #loginText {
+    font-size: 275%;
+    margin-top: 0%;
+  }
+
+  .loginLabel {
+    font-size: 125%;
+  }
+
+  #aboutHead {
+    font-size: 250%;
+  }
+
+  #aboutText {
+    font-size: 130%;
+  }
+
+}
+
+/* Extra Small Devices, Phones */ /* CHECK */
+@media only screen and (min-width: 480px) {
+
+  #logo {
+    height: auto;
+    width: auto;
+    max-height: 440px;
+    max-width: 440px;
+  }
+
+  .subtitle {
+    font-size: 200%;
+  }
+
+  .loginLabel {
+    font-size: 135%;
+  }
+
+  #loginButton {
+    font-size: 125%;
+  }
+
+  #rememberMeText {
+    font-size: 115%;
+  }
+
+  #newUserText {
+    font-size: 115%;
+  }
+
+  #aboutHead {
+    font-size: 275%;
+  }
+
+  #aboutText {
+    font-size: 150%;
+  }
+
+}
+
+/* iPhone 6 - landscape */
+@media only screen and (min-width: 627px) and (orientation: landscape) {
+
+  #logo {
+    height: auto;
+    width: auto;
+    max-height: 475px;
+    max-width: 475px;
+    margin-top: 5%;
+  }
+
+  .subtitle {
+    font-size: 205%;
+  }
+
+  #loginSlot {
+    margin-top: 0%;
+  }
+
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width: 768px) {
+
+  #logo {
+    height: auto;
+    width: auto;
+    max-height: 635px;
+    max-width: 635px;
+  }
+
+  .subtitle {
+      font-size: 270%;
+  }
+
+  #loginText {
+    font-size: 300%;
+  }
+
+  #loginSlot {
+    margin-top: 5%;
+  }
+
+  .loginLabel {
+    font-size: 150%;
+  }
+
+  .loginForm {
+    font-size: 150%;
+  }
+
+  #rememberMeText {
+    font-size: 150%;
+  }
+
+  #loginButton {
+    font-size: 150%;
+  }
+
+  #newUserText {
+    font-size: 150%;
+  }
+
+  #aboutHead {
+    font-size: 300%;
+  }
+
+  #aboutText {
+    font-size: 200%;
+  }
+
+}
+
+/* Medium Devices, Desktops */ /* CHECK */
+@media only screen and (min-width: 992px) {
+
+  #logo {
+    height: auto;
+    width: auto;
+    max-height: 625px;
+    max-width: 625px;
+  }
+
+  .subtitle {
+    font-size: 255%;
+  }
+
+  #aboutHead {
+    font-size: 350%;
+  }
+
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width: 1200px) {
+
+  #logo {
+    height: auto;
+    width: auto;
+    max-height: 700px;
+    max-width: 700px;
+  }
+
+  .subtitle {
+    font-size: 260%;
+  }
+
+  #loginText {
+    font-size: 325%;
+  }
+
+  .loginLabel {
+    font-size: 175%;
+  }
+
+  .loginForm {
+    font-size: 150%;
+  }
+
+  #rememberMeText {
+    font-size: 175%;
+  }
+
+  #loginButton {
+    font-size: 175%;
+  }
+
+  #newUserText {
+    font-size: 175%;
+  }
+
+  #aboutHead {
+    font-size: 425%;
+  }
+
+  #aboutText {
+    font-size: 225%;
+  }
+
 }
