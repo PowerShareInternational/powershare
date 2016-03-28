@@ -35,6 +35,10 @@ body {
   background-color: white;
 }
 
+.users {
+  list-style-type: none;
+}
+
 /* footer */
 
 footer {
@@ -133,6 +137,24 @@ footer ul li {
     margin-bottom: 5%;
   }
 
+  .formHeader {
+    margin-top: 0%;
+    margin-bottom: 5%;
+  }
+
+  .formLabel {
+    margin-top: 5%;
+  }
+
+  #submitFormButton {
+    margin-top: 5%;
+    margin-bottom: 5%;
+  }
+
+  #user_community_id {
+    margin-left: -15%;
+  }
+
 }
 
 /* iphone6 (portrait) */
@@ -164,6 +186,10 @@ footer ul li {
 
   #aboutText {
     font-size: 130%;
+  }
+
+  #user_community_id {
+    margin-left: 0%;
   }
 
 }
@@ -279,6 +305,18 @@ footer ul li {
     font-size: 200%;
   }
 
+  .formLabel {
+    font-size: 125%;
+  }
+
+  #user_community_id {
+    font-size: 125%;
+  }
+
+  #submitFormButton {
+    font-size: 150%;
+  }
+
 }
 
 /* Medium Devices, Desktops */ /* CHECK */
@@ -345,6 +383,10 @@ footer ul li {
 
   #aboutText {
     font-size: 225%;
+  }
+
+  .formLabel {
+    margin-top: 2%;
   }
 
 }

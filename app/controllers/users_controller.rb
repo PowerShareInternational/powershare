@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   before_action :admin_user, only: [:destroy, :activate]
 
   def index
-    @users = User.paginate(page: params[:page])
+    @users = User.paginate(page: params[:page]).order(:last_name)
   end
 
 	def show
@@ -18,7 +18,7 @@ class UsersController < ApplicationController
   def create
   	@user = User.new(user_params)
   	if @user.save
-  		flash[:success] = "Thank you for signing up with PowerShare! Your account will be verified to ensure you are a registered voter in this community. You will be notified when your account is activated."
+  		flash[:success] = "Thank you for signing up with PowerShare! Your account will be verified to ensure you are a registered voter in this community. You will be notified via email when your account is activated."
   		redirect_to @user
   	else
   		render 'new'
@@ -41,14 +41,14 @@ class UsersController < ApplicationController
 
   def destroy
     User.find(params[:id]).destroy
-    flash[:success] = "This user has been deleted"
+    flash[:success] = "This user's account has been deleted from the system."
     redirect_to users_url
   end
 
   def activate
     user = User.find(params[:id])
     user.update_attributes(:active => true)
-    flash[:success] = "This user's account has been activated."
+    flash[:success] = "This user's account has been activated. Please email them to notify the change: "+user.email
     redirect_to users_url
   end
 

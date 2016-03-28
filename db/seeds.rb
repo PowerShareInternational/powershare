@@ -20,3 +20,54 @@ User.create!(
 	admin: true,
 	active: true,
 	community_id: 1)
+
+User.create!(
+	first_name: "Bob",
+	middle_name: "Mega",
+	last_name: "Ross",
+	address: "Aidekman Arts Center",
+	zip: 02155,
+	email: "bobross@gmail.com",
+	password: "password",
+	password_confirmation: "password",
+	admin: false,
+	active: false,
+	community_id: 1)
+
+User.create!(
+	first_name: "Adam",
+	middle_name: "Jon",
+	last_name: "Smith",
+	address: "1100 Elm st.",
+	zip: 02654,
+	email: "adamsmith@gmail.com",
+	password: "password",
+	password_confirmation: "password",
+	admin: false,
+	active: false,
+	community_id: 1)
+
+User.create!(
+	first_name: "Rachel",
+	middle_name: "Doe",
+	last_name: "Adams",
+	address: "1100 Elm st.",
+	zip: 02654,
+	email: "racheldoe@gmail.com",
+	password: "password",
+	password_confirmation: "password",
+	admin: false,
+	active: false,
+	community_id: 1)
+
+Micropost.create!(
+	content: "Micropost content",
+	description: "Micropost description",
+	measurement: "micropost measurement",
+	achieved_by: Date.today,
+	votes: 5,
+	achieved: false,
+	approved: true,
+	responses: ["first response", "second response"],
+	user_id: 1,
+	community_id: 1)

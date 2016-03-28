@@ -1,14 +1,46 @@
 <% provide(:title, 'All users') %>
-<h1>All users</h1>
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+      <h2>Users pending activation:</h2>
+      <%= will_paginate %>
+      <ul class="users">
+        <% @users.where(:community_id == current_user.community_id).each do |user| %>
+          <% if user.active == false %>
+            <li><%= link_to user.last_name+", "+user.first_name+" "+user.middle_name, user %></li>
+            <li><%= user.email %></li>
+            <li><%= user.address %></li>
+            <li><%= user.community.name %></li>
+            <li><%= user.zip %></li>
+            <li>
+              <%= link_to "activate user", user, method: :activate, data: { confirm: "Are you sure you want to activate this user's account?" } %>
+              | <%= link_to "delete user", user, method: :delete, data: { confirm: "Are you sure you want to delete this user's account from the system?" } %>
+            </li>
+            <hr>
+          <% end %>
+        <% end %>
+      </ul>
+      <%= will_paginate %>
+    </div>
 
-<%= will_paginate %>
-
-<ul class="users">
-  <% @users.each do |user| %>
-    <li><%= link_to user.first_name, user %></li>
-   	| <%= link_to "activate user", user, method: :activate, data: { confirm: "Are you sure you want to activate this user's account?" } %> |
-    | <%= link_to "delete user", user, method: :delete, data: { confirm: "Are you sure you want to delete this user's account from the system?" } %> |
-    <hr>
-  <% end %>
-</ul>
-<%= will_paginate %>
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+      <h2>Active users:</h2>
+      <%= will_paginate %>
+      <ul class="users">
+        <% @users.where(:community_id == current_user.community_id).each do |user| %>
+            <% if user.active == true %>
+              <li><%= link_to user.last_name+", "+user.first_name+" "+user.middle_name, user %>
+              <% if user.admin == true %>
+            	 | Administrator
+              <% else %>
+            	 | <%= link_to "delete user", user, method: :delete, data: { confirm: "Are you sure you want to delete this user's account from the system?" } %> 
+          	  <% end %>
+          	  <hr>
+            <% end %>
+          <% end %>
+        </li>
+      </ul>
+      <%= will_paginate %>
+    </div>
+  </div>
+</div>

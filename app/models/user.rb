@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   belongs_to :community
+  has_many :microposts
 	attr_accessor :remember_token
 	before_save { self.email = email.downcase }
 	validates :first_name, presence: true, length: { maximum: 50 }

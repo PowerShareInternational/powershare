@@ -1,32 +1,33 @@
 <%= form_for(@user) do |f| %>
   <%= render 'shared/error_messages' %>
-  <%= f.label :first_name %>
+  <%= f.label :first_name, class: 'formLabel' %>
   <%= f.text_field :first_name, class: 'form-control' %>
 
-  <%= f.label :middle_name %>
+  <%= f.label :middle_name, class: 'formLabel' %>
   <%= f.text_field :middle_name, class: 'form-control' %>
 
-  <%= f.label :last_name %>
+  <%= f.label :last_name, class: 'formLabel' %>
   <%= f.text_field :last_name, class: 'form-control' %>
 
-  <%= f.label :community_id, "Select your community from the available list:" %>
+  <%= f.label :community_id, "Select your community from the available list", class: 'formLabel' %>
+  <br>
   <%= f.collection_select :community_id, Community.all, :id, :name, include_blank: true %> 
   <br>
 
-  <%= f.label :address %>
+  <%= f.label :address, class: 'formLabel' %>
   <%= f.text_field :address, class: 'form-control' %>
 
-  <%= f.label :zip %>
+  <%= f.label :zip, class: 'formLabel' %>
   <%= f.text_field :zip, class: 'form-control' %>
 
-  <%= f.label :email %>
+  <%= f.label :email, class: 'formLabel' %>
   <%= f.email_field :email, class: 'form-control' %>
 
-  <%= f.label :password %>
+  <%= f.label :password, class: 'formLabel' %>
   <%= f.password_field :password, class: 'form-control' %>
 
-  <%= f.label :password_confirmation %>
+  <%= f.label :password_confirmation, class: 'formLabel' %>
   <%= f.password_field :password_confirmation, class: 'form-control' %>
 
-  <%= f.submit "Create my account", class: "btn btn-primary" %>
+  <%= f.submit "Create my account", class: "btn btn-primary", id: "submitFormButton" %>
 <% end %>
