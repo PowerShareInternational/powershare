@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, only: [:index, :edit, :update, :destroy]
   before_action :correct_user, only: [:edit, :update]
-  before_action :admin_user, only: :destroy
+  before_action :admin_user, only: [:destroy, :activate]
 
   def index
     @users = User.paginate(page: params[:page])
@@ -18,7 +18,6 @@ class UsersController < ApplicationController
   def create
   	@user = User.new(user_params)
   	if @user.save
-      log_in @user
   		flash[:success] = "Thank you for signing up with PowerShare! Your account will be verified to ensure you are a registered voter in this community. You will be notified when your account is activated."
   		redirect_to @user
   	else
@@ -33,7 +32,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
-      flash[:success] = "Profile udpated"
+      flash[:success] = "Your profile has been updated."
       redirect_to @user
     else
       render 'edit'
@@ -42,14 +41,21 @@ class UsersController < ApplicationController
 
   def destroy
     User.find(params[:id]).destroy
-    flash[:success] = "User deleted"
+    flash[:success] = "This user has been deleted"
+    redirect_to users_url
+  end
+
+  def activate
+    user = User.find(params[:id])
+    user.update_attributes(:active => true)
+    flash[:success] = "This user's account has been activated."
     redirect_to users_url
   end
 
   private
 
   def user_params
-  	params.require(:user).permit(:first_name, :middle_name, :last_name, :community_id, :address, :zip, :email, :password, :password_confirmation)
+  	params.require(:user).permit(:first_name, :middle_name, :last_name, :community_id, :address, :zip, :email, :password, :password_confirmation, :active)
   end
 
   def logged_in_user

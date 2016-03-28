@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'home' => 'static_pages#home'
   
   get 'signup' => 'users#new'
+  post 'users/:id' => 'users#activate'
 
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'

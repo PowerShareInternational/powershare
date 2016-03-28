@@ -4,7 +4,11 @@
 <%= will_paginate %>
 
 <ul class="users">
-  <%= render @users %>
+  <% @users.each do |user| %>
+    <li><%= link_to user.first_name, user %></li>
+   	| <%= link_to "activate user", user, method: :activate, data: { confirm: "Are you sure you want to activate this user's account?" } %> |
+    | <%= link_to "delete user", user, method: :delete, data: { confirm: "Are you sure you want to delete this user's account from the system?" } %> |
+    <hr>
+  <% end %>
 </ul>
-
 <%= will_paginate %>

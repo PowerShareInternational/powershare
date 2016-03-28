@@ -18,4 +18,5 @@ User.create!(
 	password: "password",
 	password_confirmation: "password",
 	admin: true,
+	active: true,
 	community_id: 1)
