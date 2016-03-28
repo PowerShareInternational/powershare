@@ -5,19 +5,14 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-
 Community.create!(
-	name: "Medford",
-	city: "Medford",
-	state: "Massachusetts")
+	name: "Medford, Massachusetts, United States")
 
 User.create!(
 	first_name: "Nathan",
 	middle_name: "Val",
 	last_name: "Justice",
 	address: "1121 N. River Rock Dr.",
-	city: "Belgrade",
-	state: "Montanta",
 	zip: 59714,
 	email: "nthnjustice@gmail.com",
 	password: "password",

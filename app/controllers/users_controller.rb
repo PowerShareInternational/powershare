@@ -19,7 +19,7 @@ class UsersController < ApplicationController
   	@user = User.new(user_params)
   	if @user.save
       log_in @user
-  		flash[:success] = "Welcome to PowerShare!"
+  		flash[:success] = "Thank you for signing up with PowerShare! Your account will be verified to ensure you are a registered voter in this community. You will be notified when your account is activated."
   		redirect_to @user
   	else
   		render 'new'
@@ -49,7 +49,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-  	params.require(:user).permit(:first_name, :middle_name, :last_name, :address, :city, :state, :zip, :email, :password, :password_confirmation)
+  	params.require(:user).permit(:first_name, :middle_name, :last_name, :community_id, :address, :zip, :email, :password, :password_confirmation)
   end
 
   def logged_in_user
