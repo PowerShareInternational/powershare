@@ -5,7 +5,7 @@
       <h2>Users pending activation:</h2>
       <%= will_paginate %>
       <ul class="users">
-        <% @users.where(:community_id == current_user.community_id).each do |user| %>
+        <% @users.where({community_id: current_user.community_id}).each do |user| %>
           <% if user.active == false %>
             <li><%= link_to user.last_name+", "+user.first_name+" "+user.middle_name, user %></li>
             <li><%= user.email %></li>
@@ -27,7 +27,7 @@
       <h2>Active users:</h2>
       <%= will_paginate %>
       <ul class="users">
-        <% @users.where(:community_id == current_user.community_id).each do |user| %>
+        <% @users.where({community_id: current_user.community_id}).each do |user| %>
             <% if user.active == true %>
               <li><%= link_to user.last_name+", "+user.first_name+" "+user.middle_name, user %>
               <% if user.admin == true %>

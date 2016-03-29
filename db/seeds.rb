@@ -8,6 +8,9 @@
 Community.create!(
 	name: "Medford, Massachusetts, United States")
 
+Community.create!(
+	name: "Somerville, Massachusetts, United States")
+
 User.create!(
 	first_name: "Nathan",
 	middle_name: "Val",
@@ -71,3 +74,28 @@ Micropost.create!(
 	responses: ["first response", "second response"],
 	user_id: 1,
 	community_id: 1)
+
+User.create!(
+	first_name: "Nathan",
+	middle_name: "Val",
+	last_name: "Justice",
+	address: "1121 N. River Rock Dr.",
+	zip: 59714,
+	email: "n.justice@outlook.com",
+	password: "password",
+	password_confirmation: "password",
+	admin: true,
+	active: true,
+	community_id: 2)
+
+Micropost.create!(
+	content: "Micropost content2",
+	description: "Micropost description2",
+	measurement: "micropost measurement2",
+	achieved_by: Date.today,
+	votes: 5,
+	achieved: false,
+	approved: true,
+	responses: ["first response2", "second response2"],
+	user_id: 5,
+	community_id: 2)
