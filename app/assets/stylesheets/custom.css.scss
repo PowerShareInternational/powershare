@@ -39,6 +39,48 @@ body {
   list-style-type: none;
 }
 
+div.checkRadioContainer > label > input {
+  visibility: hidden;
+}
+
+div.checkRadioContainer {
+  max-width: 100%;
+}
+div.checkRadioContainer > label {
+  display: block;
+  /*border: 2px solid grey;*/
+  margin-bottom: 3%;
+  cursor: pointer;
+}
+
+div.checkRadioContainer > label:hover {
+  background-color: AliceBlue;
+}
+
+div.checkRadioContainer > label > span {
+  display: inline;
+  vertical-align: top;
+  line-height: 1em;
+  font-size: 120%;
+}
+
+div.checkRadioContainer > label > input + i {
+  visibility: hidden;
+  color: green;
+  margin-left: -0.5em;
+  margin-right: 0.2em;
+}
+
+div.checkRadioContainer > label > input:checked + i {
+  visibility: visible;
+}
+
+.boxsizingBorder {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
 /* footer */
 
 footer {
@@ -100,7 +142,7 @@ footer ul li {
     width: auto;
     max-height: 285px;
     max-width: 285px;
-    margin-top: 10%;
+    margin-top: 5%;
   }
 
   .subtitle {

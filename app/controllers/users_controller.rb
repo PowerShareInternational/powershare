@@ -9,6 +9,7 @@ class UsersController < ApplicationController
 
 	def show
 		@user = User.find(params[:id])
+    @microposts = @user.microposts.paginate(page: params[:page])
 	end
 
   def new
@@ -48,7 +49,7 @@ class UsersController < ApplicationController
   def activate
     user = User.find(params[:id])
     user.update_attributes(:active => true)
-    flash[:success] = "This user's account has been activated. Please email them to notify the change: "+user.email
+    flash[:success] = "This user's account has been activated. Please email them to notify the change: "+user.first_name+" "+user.last_name+", "+user.email
     redirect_to users_url
   end
 
@@ -56,14 +57,6 @@ class UsersController < ApplicationController
 
   def user_params
   	params.require(:user).permit(:first_name, :middle_name, :last_name, :community_id, :address, :zip, :email, :password, :password_confirmation, :active)
-  end
-
-  def logged_in_user
-    unless logged_in?
-      store_location
-      flash[:danger] = "Please log in."
-      redirect_to login_url
-    end
   end
 
   def correct_user

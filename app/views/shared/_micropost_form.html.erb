@@ -1,0 +1,14 @@
+<%= form_for(@micropost) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+
+  <%= f.label :description %>
+  <%= f.text_area :description, class: 'form-control' %>
+
+  <%= f.label :measurement %>
+  <%= f.text_area :measurement, class: 'form-control' %>
+
+  <%= f.label :achieved_by %>
+  <%= f.date_select :achieved_by %>
+  
+  <%= f.submit "Post", class: "btn btn-primary" %>
+<% end %>

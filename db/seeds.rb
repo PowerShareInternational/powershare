@@ -5,11 +5,16 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+##### Communities #####
+
 Community.create!(
 	name: "Medford, Massachusetts, United States")
 
 Community.create!(
 	name: "Somerville, Massachusetts, United States")
+
+##### Users #####
 
 User.create!(
 	first_name: "Nathan",
@@ -63,18 +68,6 @@ User.create!(
 	active: false,
 	community_id: 1)
 
-Micropost.create!(
-	content: "Micropost content",
-	description: "Micropost description",
-	measurement: "micropost measurement",
-	achieved_by: Date.today,
-	votes: 5,
-	achieved: false,
-	approved: true,
-	responses: ["first response", "second response"],
-	user_id: 1,
-	community_id: 1)
-
 User.create!(
 	first_name: "Nathan",
 	middle_name: "Val",
@@ -88,10 +81,24 @@ User.create!(
 	active: true,
 	community_id: 2)
 
+##### Goals #####
+
 Micropost.create!(
-	content: "Micropost content2",
-	description: "Micropost description2",
-	measurement: "micropost measurement2",
+	content: "Micropost content",
+	description: "Micropost description",
+	measurement: "micropost measurement",
+	achieved_by: Date.today,
+	votes: 5,
+	achieved: false,
+	approved: true,
+	responses: ["first response", "second response"],
+	user_id: 1,
+	community_id: 1)
+
+Micropost.create!(
+	content: "Somerville Micropost content",
+	description: "Somerville Micropost description",
+	measurement: "Somerville Micropost measurement",
 	achieved_by: Date.today,
 	votes: 5,
 	achieved: false,
@@ -99,3 +106,27 @@ Micropost.create!(
 	responses: ["first response2", "second response2"],
 	user_id: 5,
 	community_id: 2)
+
+Micropost.create!(
+	content: "Micropost content #2",
+	description: "Micropost description #2",
+	measurement: "micropost measurement #2",
+	achieved_by: Date.today,
+	votes: 1000,
+	achieved: false,
+	approved: true,
+	responses: ["first response", "second response"],
+	user_id: 1,
+	community_id: 1)
+
+Micropost.create!(
+	content: "Micropost content #3",
+	description: "Micropost description #3",
+	measurement: "micropost measurement #3",
+	achieved_by: Date.today,
+	votes: 100,
+	achieved: false,
+	approved: true,
+	responses: ["first response", "second response"],
+	user_id: 1,
+	community_id: 1)
