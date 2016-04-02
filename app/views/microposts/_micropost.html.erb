@@ -1,5 +1,13 @@
-<label>
-	<input type="radio" name="goal" value="<%= micropost.content %>"/>
-	<i class="fa fa-check fa-2x"></i>
-	<span><%= micropost.content %></span>
-</label>
+<tr>
+	<td><label>
+		<input type="radio" name="goal" value="<%= micropost.content %>"/>
+		<i class="fa fa-check fa-2x"></i>
+		<span><%= micropost.content %></span>
+	</label></td>
+	<td><span><%= micropost.votes %></span></td>
+	<% if micropost.achieved %>
+		<td><span>Achieved!</span></td>
+	<% else %>
+		<td><span></span></td>
+	<% end %>
+</tr>

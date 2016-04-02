@@ -125,7 +125,7 @@ Micropost.create!(
 	measurement: "micropost measurement #3",
 	achieved_by: Date.today,
 	votes: 100,
-	achieved: false,
+	achieved: true,
 	approved: true,
 	responses: ["first response", "second response"],
 	user_id: 1,

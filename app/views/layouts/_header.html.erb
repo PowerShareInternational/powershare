@@ -12,6 +12,10 @@
     	<div id="navbar" class="collapse navbar-collapse text-center">
       	<ul class="nav navbar-nav">
       		<ul class="nav navbar-nav navbar-right">
+      					<% if logged_in? %>
+      						<li><%= link_to "Hello, "+current_user.first_name+" "+current_user.last_name+" |", "#" %></li>
+      					<% end %>
+
 						<li><%= link_to "Home", root_path %></li>
 
 						<% if logged_in? %>

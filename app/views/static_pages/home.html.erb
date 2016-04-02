@@ -1,7 +1,5 @@
 <% provide(:title, 'Home') %>
-<% if logged_in? %>
-  <%= render 'shared/user_info' %>
-<% end %>
+<%= current_user.community.name %>
 <h1><em>Your Current Priority: </em></h1>
 <%= render 'shared/feed' %>
 <% if logged_in? %>
