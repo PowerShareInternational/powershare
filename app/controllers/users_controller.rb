@@ -53,10 +53,37 @@ class UsersController < ApplicationController
     redirect_to users_url
   end
 
+  def update_priority
+    if (params[:new_priority] == "error") 
+      flash[:danger] = "Please select the goal you believe should be the top priority in your community."
+    elsif current_user.priority == "none"
+      new_goal = Micropost.find_by(content: params[:new_priority])
+      if current_user.update_attribute(:priority, params[:new_priority])
+        new_goal.increment!(:votes)
+      end
+    else
+      old_goal = Micropost.find_by(content: current_user.priority)
+      new_goal = Micropost.find_by(content: params[:new_priority])
+
+      if old_goal.id != new_goal.id  
+        if current_user.update_attribute(:priority, params[:new_priority])
+          old_goal.decrement!(:votes)
+          new_goal.increment!(:votes)
+        end
+      else
+        flash[:danger] = "You have already selected this goal to be your community's priority."
+      end
+    end
+
+    respond_to do |format|
+      format.js {render inline: "location.reload();" }
+    end
+  end
+
   private
 
   def user_params
-  	params.require(:user).permit(:first_name, :middle_name, :last_name, :community_id, :address, :zip, :email, :password, :password_confirmation, :active)
+  	params.require(:user).permit(:first_name, :middle_name, :last_name, :community_id, :address, :zip, :email, :password, :password_confirmation, :active, :priority)
   end
 
   def correct_user

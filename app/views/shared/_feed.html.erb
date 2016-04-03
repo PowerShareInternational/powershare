@@ -3,15 +3,15 @@
 		<tr>
 			<th>Goal</th>
 			<th>Votes</th>
-			<th>Achieved</th>
+			<th></th>
 		</tr>
 	</thead>
 	<tbody>
 		<div class="checkRadioContainer">
-			<% if @feed_items.any? %>
-		  	<%= render @feed_items %>
-		  	<%= will_paginate @feed_items %>
-			<% end %>
+  		<%= render @feed_items %>
+  		<%= will_paginate @feed_items %>
 		</div>
 	</tbody>
 </table>
+
+<button type="button" class="btn btn-primary btn-success" id="submitPriorityButton" onclick="submitPriority()">Submit Selection</button>

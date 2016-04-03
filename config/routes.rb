@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
 
+  patch 'users/update_priority' => 'users#update_priority'
+
   resources :users
   resources :microposts
 

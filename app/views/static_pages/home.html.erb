@@ -1,7 +1,56 @@
 <% provide(:title, 'Home') %>
-<%= current_user.community.name %>
-<h1><em>Your Current Priority: </em></h1>
-<%= render 'shared/feed' %>
 <% if logged_in? %>
+	<%= current_user.community.name %>
+
+	<% if current_user.priority != "none" %>
+		<h1><em>Your Current Priority: </em></h1>
+		<%= current_user.priority %>
+	<% end %>
+
+	<% if @feed_items.any? %>
+		<%= render 'shared/feed' %>
+	<% else %>
+		<div class="container-fluid">
+			<div class="row-fluid">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center"> 
+					<h1>There are currently no goals set by your community.</h1>
+					<h2>Be the first to submit one, and then spread the word about PowerShare!</h2>
+					<br>
+				</div>
+			</div>
+		</div>
+	<% end %>
+
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center"> 
+				<h4 id="newGoalHeader" class="text-muted">If you do not see your top goal, please submit it below:</h4>
+			</div>
+		</div>
+	</div>
+
 	<%= render 'shared/micropost_form' %>
 <% end %>
+
+<script>
+function submitPriority() {
+	var priorities = document.getElementsByName("selectable_goal");
+	var newPriority;
+
+  for (var i = 0; i < priorities.length; i++) {
+    if (priorities[i].checked) {
+      newPriority = priorities[i].value;
+    }
+  }
+
+  if (newPriority === undefined) {
+  	newPriority = "error";
+  }
+
+	$.ajax({ 
+	  type: 'PATCH', 
+	  url: 'users/update_priority', 
+	  data: {'new_priority': newPriority}
+	});
+}
+</script>

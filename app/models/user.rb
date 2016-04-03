@@ -38,7 +38,7 @@ class User < ActiveRecord::Base
   end
 
   def feed
-    Micropost.where("community_id = ?", community_id)
+    Micropost.where("community_id = ? and content != ?", community_id, "")
   end
   
 end

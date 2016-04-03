@@ -13,8 +13,8 @@
             <li><%= user.community.name %></li>
             <li><%= user.zip %></li>
             <li>
-              <%= link_to "activate user", user, method: :activate, data: { confirm: "Are you sure you want to activate this user's account?" } %>
-              | <%= link_to "delete user", user, method: :delete, data: { confirm: "Are you sure you want to delete this user's account from the system?" } %>
+              | <%= link_to "activate user", user, method: :activate, data: { confirm: "Are you sure you want to activate this user's account?" } %>
+              | <%= link_to "delete user", user, method: :delete, data: { confirm: "Are you sure you want to delete this user's account from the system?" } %> |
             </li>
             <hr>
           <% end %>
@@ -33,7 +33,7 @@
               <% if user.admin == true %>
             	 | Administrator
               <% else %>
-            	 | <%= link_to "delete user", user, method: :delete, data: { confirm: "Are you sure you want to delete this user's account from the system?" } %> 
+            	 | <%= link_to "delete user", user, method: :delete, data: { confirm: "Are you sure you want to delete this user's account from the system?" } %> | 
           	  <% end %>
           	  <hr>
             <% end %>

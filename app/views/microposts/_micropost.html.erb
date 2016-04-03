@@ -1,8 +1,8 @@
 <tr>
 	<td><label>
-		<input type="radio" name="goal" value="<%= micropost.content %>"/>
+		<%= radio_button_tag "selectable_goal", micropost.content %>
 		<i class="fa fa-check fa-2x"></i>
-		<span><%= micropost.content %></span>
+		<span><%= "(submitted "+time_ago_in_words(micropost.created_at)+" ago) "+micropost.content %></span>
 	</label></td>
 	<td><span><%= micropost.votes %></span></td>
 	<% if micropost.achieved %>
