@@ -13,6 +13,7 @@
   <br>
   <%= f.collection_select :community_id, Community.all, :id, :name, include_blank: true %> 
   <br>
+  <p class="formLabel" id="noCommunityText">Is your community not listed? <%= link_to "Contact us!", contact_path %> </p>
 
   <%= f.label :address, class: 'formLabel' %>
   <%= f.text_field :address, class: 'form-control' %>
@@ -29,5 +30,5 @@
   <%= f.label :password_confirmation, class: 'formLabel' %>
   <%= f.password_field :password_confirmation, class: 'form-control' %>
 
-  <%= f.submit "Create my account", class: "btn btn-primary", id: "submitFormButton" %>
+  <%= f.submit "Create Account", class: "btn btn-success", id: "submitFormButton" %>
 <% end %>

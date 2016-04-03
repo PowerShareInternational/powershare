@@ -47,6 +47,14 @@ body {
   font-weight: bold;
 }
 
+#signupHeader {
+  font-weight: bold;
+}
+
+#newUserFormWrapper {
+  background-color: white;
+}
+
 /* Check features */
 
 tr > td > label > input {
@@ -193,9 +201,9 @@ footer ul li {
     margin-bottom: 5%;
   }
 
-  .formHeader {
-    margin-top: 0%;
-    margin-bottom: 5%;
+  #signupHeader {
+    font-size: 200%;
+    margin-top: -5%;
   }
 
   .formLabel {
@@ -205,10 +213,12 @@ footer ul li {
   #submitFormButton {
     margin-top: 5%;
     margin-bottom: 5%;
+    font-size: 115%;
+    font-weight: bold;
   }
 
   #user_community_id {
-    margin-left: -15%;
+    margin-left: -17%;
   }
 
 }
@@ -266,7 +276,11 @@ footer ul li {
   }
 
   #user_community_id {
-    margin-left: 0%;
+    margin-left: -7%;
+  }
+
+  #noCommunityText {
+    font-size: 115%;
   }
 
 }
@@ -321,6 +335,18 @@ footer ul li {
     font-size: 130%;
   }
 
+  #signupHeader {
+    font-size: 215%;
+  }
+
+  .formLabel {
+    font-size: 115%;
+  }
+
+  #user_community_id {
+    margin-left: 0%;
+  }
+
 }
 
 /* iPhone 6 - landscape */
@@ -370,6 +396,23 @@ footer ul li {
 
   .contactHead {
     font-size: 175%;
+  }
+
+  #signupHeader {
+    margin-top: 0%;
+    font-size: 235%;
+  }
+
+  .formLabel {
+    font-size: 125%;
+  }
+
+  #noCommunityText {
+    font-size: 125%;
+  }
+
+  #submitFormButton {
+    font-size: 125%;
   }
 
 }
@@ -434,8 +477,17 @@ footer ul li {
     font-size: 175%;
   }
 
+  #signupHeader {
+    font-size: 300%;
+    margin-top: 5%;
+  }
+
   .formLabel {
-    font-size: 125%;
+    font-size: 150%;
+  }
+
+  #noCommunityText {
+    font-size: 150%;
   }
 
   #user_community_id {
@@ -443,7 +495,7 @@ footer ul li {
   }
 
   #submitFormButton {
-    font-size: 150%;
+    font-size: 175%;
   }
 
 }
@@ -483,6 +535,10 @@ footer ul li {
 
   .contactHead {
     font-size: 215%;
+  }
+
+  #signupHeader {
+    margin-top: 0%;
   }
 
 }
@@ -532,10 +588,6 @@ footer ul li {
 
   #aboutText {
     font-size: 265%;
-  }
-
-  .formLabel {
-    margin-top: 2%;
   }
 
 }
