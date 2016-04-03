@@ -5,6 +5,10 @@ class MicropostsController < ApplicationController
 		@microposts = Micropost.paginate(page: params[:page]).order(:created_at)
 	end
 
+  def show
+    @micropost = Micropost.find(params[:id])
+  end
+
 	def create
 		@micropost = current_user.microposts.build(micropost_params)
 		@micropost.community_id = current_user.community_id
@@ -18,11 +22,13 @@ class MicropostsController < ApplicationController
 
 	def update
     @micropost = Micropost.find(params[:id])
-    @micropost.approved = true
     if @micropost.update_attributes(micropost_params)
-      flash[:success] = ""
-  	else
-  		flash[:danger]= ""
+      if @micropost.content != ""
+        @micropost.update_attribute(:approved, true)
+        flash[:success] = "The goal has been approved."
+  	  else
+  		  flash[:danger]= "Please translate the details of the goal."
+      end
   	end
   	redirect_to microposts_url
   end

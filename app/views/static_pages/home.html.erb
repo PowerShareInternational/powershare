@@ -33,6 +33,10 @@
 <% end %>
 
 <script>
+$(document).ready(function() {
+  $('#goalsTable').DataTable({});
+});
+
 function submitPriority() {
 	var priorities = document.getElementsByName("selectable_goal");
 	var newPriority;

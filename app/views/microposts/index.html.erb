@@ -7,7 +7,7 @@
       <ul class="goals">
       	<% @microposts.where({community_id: current_user.community_id}).each do |goal| %>
       		<% if goal.approved == false %>
-      			<li>Submitted by: <%= link_to goal.user.last_name+", "+goal.user.first_name%> <%= " ( "+goal.user.email+" )" %></li>
+      			<li>Submitted by: <%= link_to goal.user.last_name+", "+goal.user.first_name, goal.user %> <%= " ( "+goal.user.email+" )" %></li>
       			<li>Sent <%= time_ago_in_words(goal.created_at) %> ago</li>
       			<%= form_for(goal) do |f| %>
 			  			<%= render 'shared/error_messages', object: f.object %>

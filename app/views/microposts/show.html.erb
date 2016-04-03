@@ -1,0 +1,5 @@
+<% provide(:title, "View Goal") %>
+<%= @micropost.content %>
+<% @micropost.responses.each do |response| %>
+	<%= response %>
+<% end %>

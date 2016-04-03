@@ -4,7 +4,7 @@
 /* universal */
 
 body {
-  background-color: white;
+  background-color: #7f3e98;;
   font-family: "MS Sans-serif", sans-serif, Georgia;
 }
 
@@ -42,6 +42,12 @@ body {
 .goals {
   list-style-type: none;
 }
+
+#loginText {
+  font-weight: bold;
+}
+
+/* Check features */
 
 tr > td > label > input {
   visibility: hidden;
@@ -86,7 +92,8 @@ footer {
 }
 
 footer a {
-  color: black;
+  color: white;
+  font-weight: bold;
 }
 
 footer a:hover {
@@ -148,7 +155,7 @@ footer ul li {
   }
 
   #loginText {
-    font-size: 250%;
+    font-size: 150%;
     margin-top: -5%;
   }
 
@@ -164,6 +171,15 @@ footer ul li {
   #loginButton {
     margin-bottom: 5%;
     font-weight: bold;
+    font-size: 120%;
+  }
+
+  #newUserText {
+    font-size: 110%;
+  }
+
+  #signupText {
+    font-size: 115%;
   }
 
   #aboutHead {
@@ -201,23 +217,44 @@ footer ul li {
 @media only screen and (min-width: 360px) {
 
   #logo {
-      height: auto;
-      width: auto;
-      max-height: 335px;
-      max-width: 335px;
+    height: auto;
+    width: auto;
+    max-height: 335px;
+    max-width: 335px;
   }
 
   .subtitle {
-      font-size: 150%;
+    font-size: 150%;
   }
 
   #loginText {
-    font-size: 275%;
-    margin-top: 0%;
+    font-size: 175%;
   }
 
   .loginLabel {
+    font-size: 135%;
+  }
+
+  .loginForm {
+    font-size: 115%;
+  }
+
+  #rememberMeText {
+    font-size: 115%;
+  }
+
+  #loginButton {
+    margin-top: 5%;
+    margin-bottom: 5%;
     font-size: 125%;
+  }
+
+  #newUserText {
+    font-size: 115%;
+  }
+
+  #signupText {
+    font-size: 120%;
   }
 
   #aboutHead {
@@ -234,7 +271,7 @@ footer ul li {
 
 }
 
-/* Extra Small Devices, Phones */ /* CHECK */
+/* Extra Small Devices, Phones */
 @media only screen and (min-width: 480px) {
 
   #logo {
@@ -248,20 +285,28 @@ footer ul li {
     font-size: 200%;
   }
 
-  .loginLabel {
-    font-size: 135%;
+  #loginText {
+    font-size: 180%;
   }
 
-  #loginButton {
-    font-size: 125%;
+  .loginLabel {
+    font-size: 160%;
+  }
+
+  .loginForm {
+    font-size: 145%;
   }
 
   #rememberMeText {
-    font-size: 115%;
+    font-size: 140%;
+  }
+
+  #loginButton {
+    font-size: 150%;
   }
 
   #newUserText {
-    font-size: 115%;
+    font-size: 140%;
   }
 
   #aboutHead {
@@ -270,6 +315,10 @@ footer ul li {
 
   #aboutText {
     font-size: 150%;
+  }
+
+  footer a {
+    font-size: 130%;
   }
 
 }
@@ -286,11 +335,41 @@ footer ul li {
   }
 
   .subtitle {
-    font-size: 205%;
+    font-size: 215%;
+  }
+
+  #loginText {
+    margin-top: 1%;
+    font-size: 200%;
   }
 
   #loginSlot {
     margin-top: 0%;
+  }
+
+  #rememberMeText {
+    font-size: 150%;
+  }
+
+  #loginButton {
+    margin-top: 0%;
+    font-size: 175%;
+  }
+
+  #newUserText {
+    font-size: 150%;
+  }
+
+  #aboutHead {
+    margin-bottom: 2%;
+  }
+
+  #aboutText {
+    font-size: 155%;
+  }
+
+  .contactHead {
+    font-size: 175%;
   }
 
 }
@@ -306,11 +385,12 @@ footer ul li {
   }
 
   .subtitle {
-      font-size: 270%;
+    font-size: 270%;
   }
 
   #loginText {
-    font-size: 300%;
+    font-size: 255%;
+    margin-top: 5%;
   }
 
   #loginSlot {
@@ -318,31 +398,40 @@ footer ul li {
   }
 
   .loginLabel {
-    font-size: 150%;
+    font-size: 200%;
   }
 
   .loginForm {
-    font-size: 150%;
+    font-size: 170%;
   }
 
   #rememberMeText {
-    font-size: 150%;
+    font-size: 170%;
   }
 
   #loginButton {
-    font-size: 150%;
+    font-size: 200%;
   }
 
   #newUserText {
-    font-size: 150%;
+    font-size: 170%;
   }
 
   #aboutHead {
-    font-size: 300%;
+    font-size: 350%;
+    margin-bottom: 2%;
   }
 
   #aboutText {
     font-size: 200%;
+  }
+
+  .contactHead {
+    font-size: 200%;
+  }
+
+  footer a {
+    font-size: 175%;
   }
 
   .formLabel {
@@ -359,22 +448,41 @@ footer ul li {
 
 }
 
-/* Medium Devices, Desktops */ /* CHECK */
+/* Medium Devices, Desktops */
 @media only screen and (min-width: 992px) {
 
   #logo {
     height: auto;
     width: auto;
-    max-height: 625px;
-    max-width: 625px;
+    max-height: 650px;
+    max-width: 650px;
+    margin-top: 1%;
   }
 
   .subtitle {
-    font-size: 255%;
+    font-size: 275%;
+  }
+
+  #loginText {
+    font-size: 250%;
+    margin-top: 0%;
+  }
+
+  #loginButton {
+    margin-top: 3%;
   }
 
   #aboutHead {
-    font-size: 350%;
+    font-size: 375%;
+    margin-top: 2%;
+  }
+
+  #aboutText {
+    font-size: 250%;
+  }
+
+  .contactHead {
+    font-size: 215%;
   }
 
 }
@@ -390,19 +498,19 @@ footer ul li {
   }
 
   .subtitle {
-    font-size: 260%;
+    font-size: 300%;
   }
 
   #loginText {
-    font-size: 325%;
+    font-size: 275%;
   }
 
   .loginLabel {
-    font-size: 175%;
+    font-size: 215%;
   }
 
   .loginForm {
-    font-size: 150%;
+    font-size: 170%;
   }
 
   #rememberMeText {
@@ -410,7 +518,7 @@ footer ul li {
   }
 
   #loginButton {
-    font-size: 175%;
+    font-size: 215%;
   }
 
   #newUserText {
@@ -418,15 +526,25 @@ footer ul li {
   }
 
   #aboutHead {
-    font-size: 425%;
+    font-size: 400%;
+    margin-bottom: 1%;
   }
 
   #aboutText {
-    font-size: 225%;
+    font-size: 265%;
   }
 
   .formLabel {
     margin-top: 2%;
+  }
+
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width: 1400px) {
+
+  #loginSlot {
+    margin-top: 0%;
   }
 
 }

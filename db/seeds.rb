@@ -31,7 +31,7 @@ User.create!(
 
 User.create!(
 	first_name: "Bob",
-	middle_name: "Mega",
+	middle_name: "Juan",
 	last_name: "Ross",
 	address: "Aidekman Arts Center",
 	zip: 02155,
@@ -39,7 +39,7 @@ User.create!(
 	password: "password",
 	password_confirmation: "password",
 	admin: false,
-	active: false,
+	active: true,
 	community_id: 1)
 
 User.create!(
@@ -69,17 +69,19 @@ User.create!(
 	community_id: 1)
 
 User.create!(
-	first_name: "Nathan",
-	middle_name: "Val",
-	last_name: "Justice",
-	address: "1121 N. River Rock Dr.",
-	zip: 59714,
-	email: "n.justice@outlook.com",
+	first_name: "Jane",
+	middle_name: "Doe",
+	last_name: "Smith",
+	address: "1100 Elm st.",
+	zip: 02654,
+	email: "janedoe@gmail.com",
 	password: "password",
 	password_confirmation: "password",
-	admin: true,
-	active: true,
-	community_id: 2)
+	official: true,
+	title: "Councillor",
+	admin: false,
+	active: false,
+	community_id: 1)
 
 ##### Goals #####
 
@@ -96,18 +98,6 @@ Micropost.create!(
 	community_id: 1)
 
 Micropost.create!(
-	content: "Somerville Micropost content",
-	description: "Somerville Micropost description",
-	measurement: "Somerville Micropost measurement",
-	achieved_by: Date.today,
-	votes: 5,
-	achieved: false,
-	approved: true,
-	responses: ["first response2", "second response2"],
-	user_id: 5,
-	community_id: 2)
-
-Micropost.create!(
 	content: "Micropost content #2",
 	description: "Micropost description #2",
 	measurement: "micropost measurement #2",
@@ -115,7 +105,7 @@ Micropost.create!(
 	votes: 1000,
 	achieved: false,
 	approved: true,
-	responses: ["first response", "second response"],
+	responses: ["first response #2", "second response #2"],
 	user_id: 1,
 	community_id: 1)
 
@@ -127,6 +117,6 @@ Micropost.create!(
 	votes: 100,
 	achieved: true,
 	approved: true,
-	responses: ["first response", "second response"],
+	responses: ["first response #3", "second response #3"],
 	user_id: 1,
 	community_id: 1)
