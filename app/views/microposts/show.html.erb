@@ -1,5 +1,22 @@
 <% provide(:title, "View Goal") %>
-<%= @micropost.content %>
-<% @micropost.responses.each do |response| %>
-	<%= response %>
-<% end %>
+<div class="container-fluid" id="goalWrapper">
+	<div class="row-fluid">
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center"> 
+			<h3><%= @micropost.content %></h3>
+			<h4><%= @micropost.votes%> votes</h4>
+			<% if @micropost.achieved == true %>
+				<h4 class="achievedText">Achieved!</h4>
+			<% end %>
+			<hr>
+			<h3>Representative Comments:</h3>
+			<% if @micropost.responses.any? %>
+				<% @micropost.responses.each do |response| %>
+					<br>
+					<h4><%= response %></h4>
+				<% end %>
+			<% else %>
+				<h4 class="text-muted"><em>There are no comments at this time</em></h4>
+			<% end %>
+		</div>
+	</div>
+</div>

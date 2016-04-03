@@ -1,36 +1,57 @@
 <% provide(:title, 'Home') %>
-<% if logged_in? %>
-	<%= current_user.community.name %>
-
-	<% if current_user.priority != "none" %>
-		<h1><em>Your Current Priority: </em></h1>
-		<%= current_user.priority %>
-	<% end %>
-
-	<% if @feed_items.any? %>
-		<%= render 'shared/feed' %>
-	<% else %>
-		<div class="container-fluid">
+<div id="homeWrapper">
+	<% if logged_in? %>
+		<div class="container-fluid" id="communityNameSlot">
 			<div class="row-fluid">
 				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center"> 
-					<h1>There are currently no goals set by your community.</h1>
-					<h2>Be the first to submit one, and then spread the word about PowerShare!</h2>
+					<span id="communityName"><%= current_user.community.name %></span>
+				</div>
+			</div>
+
+			<div class="row-fluid">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"> 
+					<% if current_user.priority != "none" %>
+						<h3 class="goldWord" id="currentPriorityHeader"><em>Your Current Priority: </em></h3>
+						<h4 id="currentPriorityText"><%= current_user.priority %></h4>
+						<hr>
+					<% end %>
+				</div>
+			</div>
+		</div>
+
+		<% if @feed_items.any? %>
+			<div class="container-fluid">
+				<div class="row-fluid">
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center"> 
+						<h4 class="text-muted" id="instructionsText">Select and submit the goal you believe should be the priority in your community.</h4>
+						<br>
+					</div>
+				</div>
+			</div>
+			<%= render 'shared/feed' %>
+		<% else %>
+			<div class="container-fluid">
+				<div class="row-fluid">
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center"> 
+						<h1>There are currently no goals set by your community.</h1>
+						<h2>Be the first to submit one, and then spread the word about PowerShare!</h2>
+						<br>
+					</div>
+				</div>
+		<% end %>
+
+			<div class="row-fluid">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+					<hr> 
+					<h4 id="newGoalHeader" class="text-muted">If you do not see your top goal, please submit it below:</h4>
 					<br>
 				</div>
 			</div>
 		</div>
+
+		<%= render 'shared/micropost_form' %>
 	<% end %>
-
-	<div class="container-fluid">
-		<div class="row-fluid">
-			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center"> 
-				<h4 id="newGoalHeader" class="text-muted">If you do not see your top goal, please submit it below:</h4>
-			</div>
-		</div>
-	</div>
-
-	<%= render 'shared/micropost_form' %>
-<% end %>
+</div>
 
 <script>
 $(document).ready(function() {

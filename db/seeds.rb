@@ -9,10 +9,10 @@
 ##### Communities #####
 
 Community.create!(
-	name: "Medford, Massachusetts, United States")
+	name: "Medford, Massachusetts")
 
 Community.create!(
-	name: "Somerville, Massachusetts, United States")
+	name: "Somerville, Massachusetts")
 
 ##### Users #####
 

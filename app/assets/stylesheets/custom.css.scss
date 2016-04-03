@@ -1,7 +1,9 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-/* universal */
+/*==================================================
+                    Universal                  
+==================================================*/
 
 body {
   background-color: #7f3e98;;
@@ -16,23 +18,6 @@ body {
   font-weight: bold;
   color: #6d6874;
   font-style: italic;
-}
-
-#topSection {
-  background-color: white;
-}
-
-#aboutSection {
-  background-color: #282828;
-  color: white;
-}
-
-#contactSection {
-  background-color: #C8C8C8;
-}
-
-#loginSection {
-  background-color: white;
 }
 
 .users {
@@ -51,11 +36,66 @@ body {
   font-weight: bold;
 }
 
+.achievedText {
+  color: #1ab602;
+  font-weight: bold;
+  font-style: italic;
+}
+
+/*=========== Background colors ============*/
+
+#topSection {
+  background-color: white;
+}
+
+#aboutSection {
+  background-color: #282828;
+  color: white;
+}
+
+#contactSection {
+  background-color: #C8C8C8;
+}
+
+#loginSection {
+  background-color: white;
+}
+
+/*========== Wrappers =============*/
+
 #newUserFormWrapper {
   background-color: white;
 }
 
-/* Check features */
+#homeWrapper {
+  background-color: white;
+}
+
+#micropostFormWrapper {
+  background-color: white;
+}
+
+#usersWrapper {
+  background-color: white;
+}
+
+#goalsWrapper {
+  background-color: white;
+}
+
+#profileWrapper {
+  background-color: white;
+}
+
+#updateAccountWrapper {
+  background-color: white;
+}
+
+#goalWrapper {
+  background-color: white;
+}
+
+/*======== Check-mark Features =========*/
 
 tr > td > label > input {
   visibility: hidden;
@@ -93,7 +133,7 @@ tr > td > label > input:checked + i {
   visibility: visible;
 }
 
-/* footer */
+/*======== Footer ========*/
 
 footer {
   border-top: 1px solid black;
@@ -123,7 +163,7 @@ footer ul li {
   margin-right: 15px;
 }
 
-/* form errors */
+/*======= Form Errors ========*/
 
 #error_explanation {
   color: red;
@@ -139,8 +179,6 @@ footer ul li {
     color: $state-danger-text;
   }
 }
-
-/* CUSTOM */
 
 /*==================================================
 =            Bootstrap 3 Media Queries             =
@@ -340,7 +378,7 @@ footer ul li {
   }
 
   .formLabel {
-    font-size: 115%;
+    font-size: 110%;
   }
 
   #user_community_id {
@@ -597,6 +635,120 @@ footer ul li {
 
   #loginSlot {
     margin-top: 0%;
+  }
+
+}
+
+/*==================================================
+                      Home Page           
+==================================================*/
+
+/* iPhone4 (portrait) */
+@media only screen and (min-width: 320px) {
+
+  header {
+    margin-bottom: -7%;
+  }
+
+  #communityNameSlot {
+    margin-top: 0%;
+    margin-bottom: 5%;
+  }
+
+  #communityName {
+    font-weight: bold;
+  }
+
+  #submitPriorityButton {
+    font-weight: bold;
+  }
+
+  #newGoalButton {
+    font-weight: bold;
+  }
+
+}
+
+/* iphone6 (portrait) */
+@media only screen and (min-width: 360px) {
+
+  #instructionsText {
+    font-size: 150%;
+  }
+
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width: 480px) {
+
+  #submitPriorityButton {
+    font-size: 115%;
+  }
+
+  #newGoalButton {
+    font-size: 115%;
+  }
+
+  .achievedText {
+    font-size: 115%;
+  }
+
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width: 768px) {
+  
+  #communityName {
+    font-size: 150%;
+  }
+
+  #currentPriorityHeader {
+    font-size: 200%;
+  }
+
+  #currentPriorityText {
+    font-size: 150%;
+  }
+
+  #instructionsText {
+    font-size: 175%;
+  }
+
+  #submitPriorityButton {
+    font-size: 125%;
+  }
+
+  #newGoalHeader {
+    font-size: 175%;
+  }
+
+  #newGoalButton {
+    font-size: 125%;
+  }
+
+  .newGoalLabel {
+    font-size: 125%;
+  }
+
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width: 992px) {
+
+  header {
+      margin-bottom: -2%;
+  }
+
+  .achievedText {
+    font-size: 125%;
+  }
+
+  #submitPriorityButton {
+    font-size: 150%;
+  }
+
+  #newGoalButton {
+    font-size: 150%;
   }
 
 }

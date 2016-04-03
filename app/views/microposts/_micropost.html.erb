@@ -2,13 +2,17 @@
 	<td><label>
 		<%= radio_button_tag "selectable_goal", micropost.content %>
 		<i class="fa fa-check fa-2x"></i>
-		<span><%= "(submitted "+time_ago_in_words(micropost.created_at)+" ago) "+micropost.content %></span>
+		<span>
+			<span class="goalContent"><%= micropost.content %></span>
+			<p> </p>
+			<p class="timeAgoText"><small><%= "(submitted "+time_ago_in_words(micropost.created_at)+" ago)" %></small></p>
+			<p class="viewResponsesText"><%= link_to "View Responses", micropost %></p>
+		</span>
 	</label></td>
-	<td><span><%= micropost.votes %></span></td>
+	<td><span><strong><%= micropost.votes %></strong></span></td>
 	<% if micropost.achieved %>
-		<td><span>Achieved!</span></td>
+		<td><span class="achievedText">Achieved!</span></td>
 	<% else %>
 		<td><span></span></td>
 	<% end %>
-	<td><%= link_to "View Comments for this Goal", micropost %></td>
 </tr>
