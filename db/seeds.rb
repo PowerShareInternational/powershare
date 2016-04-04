@@ -19,7 +19,7 @@ User.create!(
 	last_name: "Justice",
 	address: "1121 N. River Rock Dr.",
 	zip: 59714,
-	email: "nthnjustice@gmail.com",
+	email: "nathanjustice@gmail.com",
 	password: "password",
 	password_confirmation: "password",
 	admin: true,

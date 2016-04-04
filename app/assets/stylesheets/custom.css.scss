@@ -6,7 +6,7 @@
 ==================================================*/
 
 body {
-  background-color: #7f3e98;;
+  background-color: white;
   font-family: "MS Sans-serif", sans-serif, Georgia;
 }
 
@@ -44,9 +44,6 @@ body {
 
 /*=========== Background colors ============*/
 
-#topSection {
-  background-color: white;
-}
 
 #aboutSection {
   background-color: #282828;
@@ -55,44 +52,6 @@ body {
 
 #contactSection {
   background-color: #C8C8C8;
-}
-
-#loginSection {
-  background-color: white;
-}
-
-/*========== Wrappers =============*/
-
-#newUserFormWrapper {
-  background-color: white;
-}
-
-#homeWrapper {
-  background-color: white;
-}
-
-#micropostFormWrapper {
-  background-color: white;
-}
-
-#usersWrapper {
-  background-color: white;
-}
-
-#goalsWrapper {
-  background-color: white;
-}
-
-#profileWrapper {
-  background-color: white;
-}
-
-#updateAccountWrapper {
-  background-color: white;
-}
-
-#goalWrapper {
-  background-color: white;
 }
 
 /*======== Check-mark Features =========*/
@@ -140,7 +99,7 @@ footer {
 }
 
 footer a {
-  color: white;
+  color: black;
   font-weight: bold;
 }
 
