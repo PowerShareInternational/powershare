@@ -6,7 +6,11 @@
 			<span class="goalContent"><%= micropost.content %></span>
 			<p> </p>
 			<p class="timeAgoText"><small><%= "(submitted "+time_ago_in_words(micropost.created_at)+" ago)" %></small></p>
-			<p class="viewResponsesText"><%= link_to "View Responses", micropost %></p>
+			<% if current_user.official == false %>
+				<p class="viewResponsesText"><%= link_to "View Responses", micropost %></p>
+			<% elsif current_user.official == true %>
+				<p class="viewResponsesText"><%= link_to "Write a Response", micropost %></p>
+			<% end %>
 		</span>
 	</label></td>
 	<td><span><strong><%= micropost.votes %></strong></span></td>

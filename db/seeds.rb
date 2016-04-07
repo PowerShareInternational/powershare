@@ -45,7 +45,7 @@ User.create!(
 	last_name: "Smith",
 	address: "1100 Little Brook st.",
 	zip: 02654,
-	email: "janedoe@gmail.com",
+	email: "janesmith@gmail.com",
 	password: "password",
 	password_confirmation: "password",
 	official: true,

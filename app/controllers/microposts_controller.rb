@@ -39,6 +39,11 @@ class MicropostsController < ApplicationController
     redirect_to microposts_url
 	end
 
+  def new_response
+    flash[:success] = params[:comment]
+    redirect_to :back
+  end
+
 	private
 
 	def micropost_params
