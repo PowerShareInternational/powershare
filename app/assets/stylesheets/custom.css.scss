@@ -1,50 +1,10 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-.navbar-fixed-top {
-    min-height: 80px;
-}
-
-.navbar-nav > li > a {
-    padding-top: 0px;
-    padding-bottom: 0px;
-    line-height: 80px;
-}
-
-@media (max-width: 767px) {
-    .navbar-nav > li > a {
-    line-height: 20px;
-    padding-top: 10px;
-    padding-bottom: 10px;}
-}
-
-/*==================================================
-=                    Universal                     =
-==================================================*/
-
-body {
-  overflow-x: hidden;
-  font-family: "Open Sans";
-}
-
 /*==================== Fonts =====================*/
 
 p.small {
   font-size: 16px;
-}
-
-a {
-  color: #1876bc;
-}
-
-a:hover {
-  font-size: 105%;
-  color: #184cbc;
-}
-
-#subtitle {
-  font-family: "Vollkorn";
-  font-weight: bold;
 }
 
 .formLabel {
@@ -113,23 +73,6 @@ a:hover {
 }
 
 /*=========== Background colors ============*/
-
-#aboutSection {
-  background-color: #282828;
-  color: white;
-}
-
-#contactSection {
-  background-color: #C8C8C8;
-}
-
-#loginSection {
-  background-color: aliceblue;
-}
-
-#newAccountSection {
-  background-color: aliceblue;
-}
 
 #homePage {
   background-color: white;
