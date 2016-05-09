@@ -1,0 +1,82 @@
+#logo {
+  height: auto;
+  width: auto;
+}
+
+/*==================================================
+=            Bootstrap 3 Media Queries             =
+==================================================*/
+
+/*==========  Mobile First Method  ==========*/
+
+/* Custom, iPhone Retina */ 
+@media only screen and (min-width : 320px) {
+  #logo {
+    margin-top: 10%;
+    max-height: 260px;
+    max-width: 260px;
+  }
+
+  #subtitle {
+    font-size: 125%;
+  }
+}
+
+/* Custom, iPhone 6 */
+@media only screen and (min-width : 360px) {
+  #logo {
+    margin-top: 5%;
+    max-height: 300px;
+    max-width: 300px;
+  }
+
+  #subtitle {
+    font-size: 150%;
+  }
+}
+
+/* Extra Small Devices, Phones */ 
+@media only screen and (min-width : 480px) {
+  #logo {
+    max-height: 400px;
+    max-width: 400px;
+  }
+
+  #subtitle {
+    font-size: 200%;
+  }
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+  #logo {
+    max-height: 550px;
+    max-width: 550px;
+  }
+
+  #subtitle {
+    font-size: 275%;
+  }
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+  #logo {
+    margin-top: 3%;
+    max-height: 600px;
+    max-width: 600px;
+  }
+
+  #subtitle {
+    margin-bottom: 3%;
+  }
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+  #logo {
+    margin-top: 12%;
+    max-height: 600px;
+    max-width: 600px;
+  }
+}

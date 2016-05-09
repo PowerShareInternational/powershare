@@ -9,13 +9,13 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <%= render 'layouts/shim' %>
 
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <%= stylesheet_link_tag 'application', "https://fonts.googleapis.com/css?family=Open+Sans" %>
+  <%= stylesheet_link_tag 'application', "https://fonts.googleapis.com/css?family=Vollkorn" %>
 </head>
 
 <body>
@@ -24,16 +24,10 @@
   <%= render 'layouts/header' %>
 <% end %>
 
-<%= render 'shared/topSection' %>
-
-<div class="text-center">
-<% flash.each do |message_type, message| %>
-  	<div class="alert alert-<%= message_type %>"><%= message %></div>
-<% end %>
-</div>
-
 <%= yield %>
 <%= render 'layouts/footer' %>
+
+
 
 </body>
 

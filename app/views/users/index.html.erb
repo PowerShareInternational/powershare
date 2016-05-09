@@ -1,8 +1,9 @@
 <% provide(:title, 'All users') %>
-<div class="container-fluid">
+
+<div class="container-fluid" id="allUsersSection">
   <div class="row-fluid">
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
-      <h2>Users pending activation:</h2>
+      <h3>Users pending activation:</h3>
       <%= will_paginate %>
       <ul class="users">
         <% @users.where({community_id: current_user.community_id}).each do |user| %>
@@ -24,7 +25,7 @@
     </div>
 
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
-      <h2>Active users:</h2>
+      <h3>Active users:</h3>
       <%= will_paginate %>
       <ul class="users">
         <% @users.where({community_id: current_user.community_id}).each do |user| %>

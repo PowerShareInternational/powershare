@@ -22,37 +22,35 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
-# Use ActiveModel has_secure_password
+# Encryption
 gem 'bcrypt', '~> 3.1.7'
-
-# Use Unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
 
 # Bootstrap
 gem 'bootstrap-sass', '~> 3.3.1'
+
+# Font Awesome
+gem 'font-awesome-rails'
+
 # Content pagination
 gem 'will_paginate', '3.0.7'
 gem 'bootstrap-will_paginate', '0.0.10'
+
 # Datatables
 gem 'jquery-datatables-rails', '~> 3.3.0'
+
 # Create fake information for seeding the database
 gem 'faker', '1.4.2'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
-end
-
-group :development do
-  # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
 end
 
 group :production do
+	# Make running the app easier
 	gem 'rails_12factor'
+	# Production-worthy server
 	gem 'puma', :require => 'puma'
 end
 

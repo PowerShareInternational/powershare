@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   def new
+    @user = User.new
     if logged_in? 
       redirect_to :controller => 'static_pages', :action => 'home' 
     end 
@@ -17,8 +18,8 @@ class SessionsController < ApplicationController
   		  redirect_to :controller => 'static_pages', :action => 'home'
       end
   	else
-  		flash.now[:danger] = 'Invalid email/password combination'
-  		render 'new'
+  		flash[:danger] = 'Invalid email/password combination'
+  		redirect_to root_url
   	end
   end
 

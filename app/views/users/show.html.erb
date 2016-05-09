@@ -1,14 +1,15 @@
 <% provide(:title, @user.first_name+" "+@user.last_name) %>
-<div class="container-fluid">
+<div class="container-fluid" id="profileSection">
 	<div class="row-fluid">
 		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center"> 
 			<h2><strong><%= @user.first_name+" "+@user.middle_name+" "+@user.last_name %></strong></h2>
-			<hr>
 			<h3><%= @user.email %></h3>
 			<h3><%= @user.address %></h3>
 			<h3><%= @user.community.name %></h3>
 			<h3><%= @user.zip %></h3>
-			<h4><%= link_to "(Update Account Information)", edit_user_path(current_user) %></h4>
+			<% if current_user.id == @user.id %>
+				<h4><%= link_to "(Update Account Information)", edit_user_path(current_user) %></h4>
+			<% end %>
 			<hr>
 
     	<% if @user.microposts.any? %>

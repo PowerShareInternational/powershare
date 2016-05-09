@@ -1,34 +1,38 @@
 <%= form_for(@user) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
+  
   <%= f.label :first_name, class: 'formLabel' %>
-  <%= f.text_field :first_name, class: 'form-control' %>
+  <%= f.text_field :first_name, class: 'form-control formBox' %>
 
   <%= f.label :middle_name, class: 'formLabel' %>
-  <%= f.text_field :middle_name, class: 'form-control' %>
+  <%= f.text_field :middle_name, class: 'form-control formBox' %>
 
   <%= f.label :last_name, class: 'formLabel' %>
-  <%= f.text_field :last_name, class: 'form-control' %>
+  <%= f.text_field :last_name, class: 'form-control formBox' %>
 
   <%= f.label :community_id, "Select your community from the available list", class: 'formLabel' %>
   <br>
   <%= f.collection_select :community_id, Community.all, :id, :name, include_blank: true %> 
   <br>
-  <p class="formLabel" id="noCommunityText">Is your community not listed? <%= link_to "Contact us!", contact_path %> </p>
+  <p class="formLabel text-muted">Is your community not listed? <%= link_to "Contact us!", contact_path %> </p>
 
   <%= f.label :address, class: 'formLabel' %>
-  <%= f.text_field :address, class: 'form-control' %>
+  <%= f.text_field :address, class: 'form-control formBox' %>
 
   <%= f.label :zip, class: 'formLabel' %>
-  <%= f.text_field :zip, class: 'form-control' %>
+  <%= f.text_field :zip, class: 'form-control formBox' %>
 
   <%= f.label :email, class: 'formLabel' %>
-  <%= f.email_field :email, class: 'form-control' %>
+  <%= f.email_field :email, class: 'form-control formBox' %>
 
   <%= f.label :password, class: 'formLabel' %>
-  <%= f.password_field :password, class: 'form-control' %>
+  <%= f.password_field :password, class: 'form-control formBox' %>
 
   <%= f.label :password_confirmation, class: 'formLabel' %>
-  <%= f.password_field :password_confirmation, class: 'form-control' %>
+  <%= f.password_field :password_confirmation, class: 'form-control formBox' %>
 
-  <%= f.submit "Create Account", class: "btn btn-success", id: "submitFormButton" %>
+  <br>
+  <%= f.submit "Create Account", class: "btn btn-primary submitButton" %>
+  <br>
+  <br>
 <% end %>

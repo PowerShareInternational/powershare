@@ -1,33 +1,89 @@
 <% provide(:title, "Log in") %>
-<section id="loginSection">
-  <div class="container-fluid">
-    <div class="row-fluid">
-      <div class="col-xs-10 col-sm-8 col-md-6 col-lg-6 col-xs-offset-1 col-sm-offset-2 col-md-offset-3 col-lg-offset-3 text-center"> 
-        <h1 id="loginText">Log in to your Community</h1>
-        <%= form_for(:session, url: login_path) do |f| %>
 
-          <div id="loginSlot">
-            <%= f.label :email, class: "loginLabel" %>
-            <%= f.email_field :email, class: 'form-control loginForm' %>
+<div class="container-fluid">
+  <div class="row">
 
-            <%= f.label :password, class: "loginLabel" %>
-            <%= f.password_field :password, class: 'form-control loginForm' %>
-
-            <%= f.label :remember_me, class: "checkbox inline" do %>
-              <%= f.check_box :remember_me %>
-              <span id="rememberMeText">Remember me on this device</span>
-            <% end %>
-
-            <%= f.submit "Log in", class: "btn btn-success", id: "loginButton" %>
-          <% end %>
-
-          <p id="newUserText">New user? <span id="signupText"><%= link_to "Sign up now!", signup_path %></span></p>
-        </div>
-      </div>
+    <div class="col-lg-7 col-fluid">
+      <%= render 'shared/brand' %>
     </div>
-  </div>
-</section>
+
+    <div class="col-lg-5">
+      <div class="panel panel-login">
+        <div class="panel-heading">
+          <div class="row">
+            <div class="col-xs-6">
+              <h4><a href="#" class="active" id="login-form-link">Login</a></h4>
+            </div>
+            <div class="col-xs-6">
+              <h4><a href="#" id="register-form-link">Register</a></h4>
+            </div>
+          </div>
+          <hr>
+        </div> <!-- panel-heading --> 
+
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-lg-12">
+              <%= form_for(:session, url: login_path, :html => {:id => "login-form"}) do |f| %>
+                <% flash.each do |message_type, message| %>
+                  <div class="alert alert-<%= message_type %>" id="loginError"><%= message %></div>
+                <% end %>
+                <%= f.email_field :email, class: "form-control", :placeholder => "Email" %>
+                <br>
+                <%= f.password_field :password, class: "form-control", :placeholder => "Password" %>
+
+                <div class="text-center">
+                  <%= f.label :remember_me, id: "rememberMe" do %>
+                    <%= f.check_box :remember_me %>
+                      Remember me on this device
+                  <% end %>
+                </div>
+
+                <div class="row">
+                  <div class="col-sm-6 col-sm-offset-3">
+                    <%= f.submit "Log in", id: "login-submit", class: "form-control btn btn-success btn-login" %>
+                  </div>
+                </div>
+              <% end %> <!-- login form -->
+              
+              <%= form_for(@user, :html => {:id => "register-form", :style => "display: none;"}) do |f| %>
+                <%= f.text_field :first_name, class: "form-control", :placeholder => "First name" %>
+                <br>
+                <%= f.text_field :middle_name, class: "form-control", :placeholder => "Middle name" %>
+                <br>
+                <%= f.text_field :last_name, class: "form-control", :placeholder => "Last name" %>
+                <br>
+                <%= f.text_field :email, class: "form-control", :placeholder => "Email" %>
+                <br>
+                <p><%= f.label :community_id, "Select your community from the available list:", id: "communityList" %></p>
+                <%= f.collection_select :community_id, Community.all, :id, :name, include_blank: true %>
+                <p id="noCommunity">Is your community not listed? <%= link_to "Contact us!", contact_path %></p>
+                <br>
+                <%= f.text_field :address, class: "form-control", :placeholder => "Address" %>
+                <br>
+                <%= f.text_field :zip, class: "form-control", :placeholder => "Zip Code" %>
+                <br>
+                <%= f.password_field :password, class: "form-control", :placeholder => "Password" %>
+                <br>
+                <%= f.password_field :password_confirmation, class: "form-control", :placeholder => "Password Confirmation" %>
+                <br>
+
+                <div class="row">
+                  <div class="col-sm-6 col-sm-offset-3">
+                    <%= f.submit "Create Account", class: "form-control btn btn-success btn-register" %>
+                  </div>
+                </div>
+              <% end %> <!-- register form -->
+
+            </div> <!-- col -->
+          </div> <!-- row -->
+        </div> <!-- panel-body -->
+
+      </div> <!-- panel -->
+    </div> <!-- col -->
+
+  </div> <!-- row -->
+</div> <!-- container-fluid -->
 
 <%= render "shared/aboutSection" %>
-
 <%= render "shared/contactSection" %>

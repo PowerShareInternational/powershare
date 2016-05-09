@@ -13,7 +13,7 @@ class MicropostsController < ApplicationController
 		@micropost = current_user.microposts.build(micropost_params)
 		@micropost.community_id = current_user.community_id
     if @micropost.save
-      flash[:success] = "Thank you for your submission! Your goal must be verified before it is viewable by the public. You may be contacted by PowerShare to clarify the details of the goal."
+      flash[:success] = "Thank you for your submission! Your goal must be verified before it is viewable by the public. You may be contacted by PowerShare to clarify some details."
     else
     	flash[:danger] = "If you'd like to submit a new goal, please complete the entire form."
     end

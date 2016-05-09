@@ -1,49 +1,56 @@
 <% provide(:title, 'Home') %>
-<% if logged_in? %>
-	<div class="container-fluid" id="communityNameSlot">
-		<div class="row-fluid">
-			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center"> 
-				<span id="communityName"><%= current_user.community.name %></span>
-			</div>
-		</div>
 
-		<div class="row-fluid">
-			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"> 
-				<% if current_user.priority != "none" %>
-					<h3 class="goldWord" id="currentPriorityHeader"><em>Your Current Priority: </em></h3>
-					<h4 id="currentPriorityText"><%= current_user.priority %></h4>
-					<hr>
-				<% end %>
+<section id="homePage">
+	<% if logged_in? %>
+		<div class="container-fluid" id="communityNameSlot">
+			<div class="row-fluid">
+				<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 col-md-offset-2 col-lg-offset-2 text-center">
+					<hr class="white"> 
+					<h1 id="communityName" class="textHuge"><%= current_user.community.name %></h1>
+					<hr class="white">
+				</div>
 			</div>
-		</div>
-	</div>
 
-	<% if @feed_items.any? %>
-		<div class="container-fluid">
 			<div class="row-fluid">
 				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center"> 
-					<h4 class="text-muted" id="instructionsText">Select and submit the goal you believe should be the priority in your community.</h4>
-					<br>
+					<% if current_user.priority != "none" %>
+						<h1 class="goldWord" id="currentPriorityHeader"><em>Your Current Priority:</em></h1>
+						<h1 id="currentPriorityText"><%= current_user.priority %></h1>
+						<br>
+					<% end %>
 				</div>
 			</div>
 		</div>
-		<%= render 'shared/feed' %>
-	<% else %>
-		<div class="container-fluid">
-			<div class="row-fluid">
-				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center"> 
-					<h1>There are currently no goals set by your community.</h1>
-					<h2>Be the first to submit one, and then spread the word about PowerShare!</h2>
-					<br>
+
+		<% if @feed_items.any? %>
+			<div class="container-fluid">
+				<div class="row-fluid">
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center"> 
+						<h4 class="text-muted" id="instructionsText">Select and submit the goal you believe should be the priority in your community.</h4>
+						<br>
+					</div>
 				</div>
 			</div>
-	<% end %>
+			<%= render 'shared/feed' %>
+		<% else %>
+			<div class="container-fluid">
+				<div class="row-fluid">
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+						<br> 
+						<h3 id="noGoals1">There are currently no goals set by your community.</h3>
+						<h4 id="noGoals2">Be the first to submit one, and then spread the word about PowerShare!</h4>
+						<br>
+					</div>
+				</div>
+		<% end %>
+</section>
 
-		<div class="row-fluid">
-			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
-				<hr> 
-				<h4 id="newGoalHeader" class="text-muted">If you do not see your top goal, please submit it below:</h4>
-				<br>
+		<div class="container-fluid newGoalSection">
+			<div class="row-fluid">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+					<br>
+					<h4 id="newGoalHeader" class="text-muted">If you do not see your top goal, please submit it below:</h4>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -52,28 +59,30 @@
 <% end %>
 
 <script>
-$(document).ready(function() {
-  $('#goalsTable').DataTable({});
-});
 
-function submitPriority() {
-	var priorities = document.getElementsByName("selectable_goal");
-	var newPriority;
-
-  for (var i = 0; i < priorities.length; i++) {
-    if (priorities[i].checked) {
-      newPriority = priorities[i].value;
-    }
-  }
-
-  if (newPriority === undefined) {
-  	newPriority = "error";
-  }
-
-	$.ajax({ 
-	  type: 'PATCH', 
-	  url: 'users/update_priority', 
-	  data: {'new_priority': newPriority}
+	$(document).ready(function() {
+	  $('#goalsTable').DataTable({});
 	});
-}
+
+	function submitPriority() {
+		var priorities = document.getElementsByName("selectable_goal");
+		var newPriority;
+
+	  for (var i = 0; i < priorities.length; i++) {
+	    if (priorities[i].checked) {
+	      newPriority = priorities[i].value;
+	    }
+	  }
+
+	  if (newPriority === undefined) {
+	  	newPriority = "error";
+	  }
+
+		$.ajax({ 
+		  type: 'PATCH', 
+		  url: 'users/update_priority', 
+		  data: {'new_priority': newPriority}
+		});
+	}
+
 </script>
