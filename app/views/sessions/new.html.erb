@@ -26,7 +26,7 @@
             <div class="col-lg-12">
               <%= form_for(:session, url: login_path, :html => {:id => "login-form"}) do |f| %>
                 <% flash.each do |message_type, message| %>
-                  <div class="alert alert-<%= message_type %>" id="loginError"><%= message %></div>
+                  <div class="alert alert-<%= message_type %> text-center" id="loginError"><%= message %></div>
                 <% end %>
                 <%= f.email_field :email, class: "form-control", :placeholder => "Email" %>
                 <br>
@@ -86,4 +86,17 @@
 </div> <!-- container-fluid -->
 
 <%= render "shared/aboutSection" %>
-<%= render "shared/contactSection" %>
+
+<section id="contactSection">
+  <div class="container-fluid">
+    <div class="row-fluid">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+        <br>
+        <p class="contactHeader">If you are interested in bringing PowerShare to your community, contact us at:</p>
+        <p class="contactHeader">571-215-6069</p>
+        <p class="contactHeader">or</p>
+        <p id="emailAddress"><a href="mailto:powershare.community@gmail">powershare.community@gmail.com</a></p>
+      </div>
+    </div>
+  </div>
+</section>

@@ -196,57 +196,6 @@ tr > td > label > input:checked + i {
   visibility: visible;
 }
 
-/*======= Form Errors ========*/
-
-#error_explanation {
-  color: red;
-  ol {
-    color: red;
-    margin: 0 0 30px 0;
-  }
-}
-
-.field_with_errors {
-  @extend .has-error;
-  .form-control {
-    color: $state-danger-text;
-  }
-}
-
-.errorDetail {
-  margin-bottom: 5%;
-}
-
-/*======== Footer ========*/
-
-footer {
-  border-top: 1px solid black;
-}
-
-footer a {
-  color: black;
-  font-weight: bold;
-}
-
-footer a:hover {
-  color: gray;
-}
-
-footer p {
-  float: left;
-}
-
-footer ul {
-  float: right;
-  list-style: none;
-}
-
-footer ul li {
-  float: left;
-  display: inline;
-  margin-right: 15px;
-}
-
 /*==================================================
 =                      Home Page                   =
 ==================================================*/

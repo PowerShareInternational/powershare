@@ -19,7 +19,7 @@ class UsersController < ApplicationController
   def create
   	@user = User.new(user_params)
   	if @user.save
-  		flash[:success] = "Thank you for signing up with PowerShare! Your account will be verified to ensure you are a registered voter in this community. You will be notified via email when your account is activated."
+  		flash[:success] = "Thank you for signing up with PowerShare! Your account will be verified to ensure you are a registered voter in this community. You will be notified through email when your account is activated."
   		redirect_to root_url
   	else
   		render 'new'

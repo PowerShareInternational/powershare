@@ -1,16 +1,78 @@
 <% provide(:title, 'Sign up') %>
 
-<section id="newAccountSection">
-	<div class="container-fluid">
-		<div class="row-fluid">
-  		<div class="col-xs-10 col-sm-8 col-md-6 col-lg-4 col-xs-offset-1 col-sm-offset-2 col-md-offset-3 col-lg-offset-4 text-center"> 
-    		<h1>Sign up</h1>
-    		<hr>
-    		<%= render 'form' %>
-    	</div>
-  	</div>
-	</div>
-</section>
+<div class="container-fluid">
+  <div class="row">
+
+    <div class="col-lg-7 col-fluid">
+      <%= render 'shared/brand' %>
+    </div>
+
+    <div class="col-lg-5">
+      <div class="panel panel-login">
+        <div class="panel-heading">
+          <div class="row">
+            <div class="col-xs-6">
+              <h4><a href="#" class="active" id="register-form-link">Register</a></h4>
+            </div>
+          </div>
+          <hr>
+        </div> <!-- panel-heading --> 
+
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-lg-12">
+              <%= form_for(@user, :html => {:id => "register-form"}) do |f| %>
+                <%= render 'shared/error_messages', object: f.object %>
+                <%= f.text_field :first_name, class: "form-control", :placeholder => "First name" %>
+                <br>
+                <%= f.text_field :middle_name, class: "form-control", :placeholder => "Middle name" %>
+                <br>
+                <%= f.text_field :last_name, class: "form-control", :placeholder => "Last name" %>
+                <br>
+                <%= f.text_field :email, class: "form-control", :placeholder => "Email" %>
+                <br>
+                <p><%= f.label :community_id, "Select your community from the available list:", id: "communityList" %></p>
+                <%= f.collection_select :community_id, Community.all, :id, :name, include_blank: true %>
+                <p id="noCommunity">Is your community not listed? <%= link_to "Contact us!", contact_path %></p>
+                <br>
+                <%= f.text_field :address, class: "form-control", :placeholder => "Address" %>
+                <br>
+                <%= f.text_field :zip, class: "form-control", :placeholder => "Zip Code" %>
+                <br>
+                <%= f.password_field :password, class: "form-control", :placeholder => "Password" %>
+                <br>
+                <%= f.password_field :password_confirmation, class: "form-control", :placeholder => "Password Confirmation" %>
+                <br>
+
+                <div class="row">
+                  <div class="col-sm-6 col-sm-offset-3">
+                    <%= f.submit "Create Account", class: "form-control btn btn-success btn-register" %>
+                  </div>
+                </div>
+              <% end %> <!-- register form -->
+
+            </div> <!-- col -->
+          </div> <!-- row -->
+        </div> <!-- panel-body -->
+
+      </div> <!-- panel -->
+    </div> <!-- col -->
+
+  </div> <!-- row -->
+</div> <!-- container-fluid -->
 
 <%= render "shared/aboutSection" %>
-<%= render "shared/contactSection" %>
+
+<section id="contactSection">
+  <div class="container-fluid">
+    <div class="row-fluid">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+        <br>
+        <p class="contactHeader">If you are interested in bringing PowerShare to your community, contact us at:</p>
+        <p class="contactHeader">571-215-6069</p>
+        <p class="contactHeader">or</p>
+        <p id="emailAddress"><a href="mailto:powershare.community@gmail">powershare.community@gmail.com</a></p>
+      </div>
+    </div>
+  </div>
+</section>
