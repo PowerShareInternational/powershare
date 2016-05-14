@@ -1,0 +1,29 @@
+#newGoalSection {
+  background-color: aliceblue;
+}
+
+#submitGoal {
+  outline: none;
+  color: #fff;
+  font-size: 14px;
+  height: auto;
+  font-weight: bold;
+  padding: 14px 0;
+  text-transform: uppercase;
+  border-color: #59B2E6;
+}
+
+#submitGoal:hover,
+#submitGoal:focus {
+  color: #fff;
+  background-color: #1CA347;
+  border-color: #1CA347;
+}
+
+#newGoalError {
+  font-size: 16px;
+}
+
+#submitGoal {
+  margin-bottom: 10%;
+}

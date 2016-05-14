@@ -1,0 +1,45 @@
+$(document).ready(function() {
+  $('#goalsTable').DataTable({});
+
+  $(function() {
+    $(document).on( 'scroll', function(){
+    	if ($(window).scrollTop() > 100) {
+				$('.scroll-top-wrapper').addClass('show');
+			} 
+			else {
+				$('.scroll-top-wrapper').removeClass('show');
+			}
+		});
+
+		$('.scroll-top-wrapper').on('click', scrollToTop);
+	});
+ 
+	function scrollToTop() {
+		verticalOffset = typeof(verticalOffset) != 'undefined' ? verticalOffset : 0;
+		element = $('body');
+		offset = element.offset();
+		offsetTop = offset.top;
+		$('html, body').animate({scrollTop: offsetTop}, 500, 'linear');
+	}
+});
+
+function submitPriority() {
+	var priorities = document.getElementsByName("selectable_goal");
+	var newPriority;
+
+  for (var i = 0; i < priorities.length; i++) {
+    if (priorities[i].checked) {
+      newPriority = priorities[i].value;
+    }
+  }
+
+  if (newPriority === undefined) {
+  	newPriority = "error";
+  }
+
+	$.ajax({ 
+	  type: 'PATCH', 
+	  url: 'users/update_priority', 
+	  data: {'new_priority': newPriority}
+	});
+}

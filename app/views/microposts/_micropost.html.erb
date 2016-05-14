@@ -1,4 +1,4 @@
-<tr>
+<!--<tr>
 	<td><label>
 		<%= radio_button_tag "selectable_goal", micropost.content %>
 		<i class="fa fa-check fa-2x"></i>
@@ -19,4 +19,50 @@
 	<% else %>
 		<td><span></span></td>
 	<% end %>
-</tr>
+</tr>-->
+
+<% if micropost.achieved == false %>
+	<tr>
+		<td>
+			<div class="bs-calltoaction bs-calltoaction-info">
+			  <div class="row">
+			    <div class="col-md-9 cta-contents">
+			      <h3 class="cta-title"><%= micropost.content %></h3>
+			      <div class="cta-desc">
+			        <h3>Current number of votes: <%= micropost.votes %></h3>
+			        <h4><%= "(submitted "+time_ago_in_words(micropost.created_at)+" ago)" %></h4>
+			      </div>
+			    </div>
+			    <div class="col-md-3 cta-button">
+			    	<% if micropost.achieved %>
+			    		<h2 class="achieved">ACHIEVED!</h2>
+			    	<% end %>
+			      <a href="#" class="btn btn-lg btn-block btn-dinfo">Go for It!</a>
+			     </div>
+			  </div>
+			</div>
+		</td>
+	</tr>
+<% else %>
+	<tr>
+		<td>
+			<div class="bs-calltoaction bs-calltoaction-success">
+			  <div class="row">
+			    <div class="col-md-9 cta-contents">
+			      <h3 class="cta-title"><%= micropost.content %></h3>
+			      <div class="cta-desc">
+			        <h3>Current number of votes: <%= micropost.votes %></h3>
+			        <h4><%= "(submitted "+time_ago_in_words(micropost.created_at)+" ago)" %></h4>
+			      </div>
+			    </div>
+			    <div class="col-md-3 cta-button">
+			    	<% if micropost.achieved %>
+			    		<h2 class="achieved">ACHIEVED!</h2>
+			    	<% end %>
+			      <a href="#" class="btn btn-lg btn-block btn-success">Go for It!</a>
+			     </div>
+			  </div>
+			</div>
+		</td>
+	</tr>
+<% end %>

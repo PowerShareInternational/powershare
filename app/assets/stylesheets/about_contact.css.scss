@@ -1,7 +1,3 @@
-a:hover {
-  font-size: 105%;
-}
-
 #aboutSection {
   background-color: #282828;
   color: white;
@@ -9,6 +5,26 @@ a:hover {
 
 #contactSection {
   background-color: #C8C8C8;
+}
+
+.gold {
+  color: #cea600;
+}
+
+a:hover {
+  font-size: 105%;
+}
+
+#aboutText {
+  margin-bottom: 5%;
+}
+
+.contactHeader {
+  font-weight: bold;
+}
+
+#emailAddress {
+  font-weight: normal;
 }
 
 /*==================================================

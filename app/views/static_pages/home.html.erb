@@ -2,7 +2,7 @@
 
 <section id="homePage">
 	<% if logged_in? %>
-		<div class="container-fluid" id="communityNameSlot">
+		<div class="container-fluid" id="topSlot">
 			<div class="row-fluid">
 				<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 col-md-offset-2 col-lg-offset-2 text-center">
 					<hr class="white"> 
@@ -14,8 +14,8 @@
 			<div class="row-fluid">
 				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center"> 
 					<% if current_user.priority != "none" %>
-						<h1 class="goldWord" id="currentPriorityHeader"><em>Your Current Priority:</em></h1>
-						<h1 id="currentPriorityText"><%= current_user.priority %></h1>
+						<h2><em>Your Current Priority:</em></h2>
+						<h3 id="currentPriority"><%= current_user.priority %></h3>
 						<br>
 					<% end %>
 				</div>
@@ -26,8 +26,7 @@
 			<div class="container-fluid">
 				<div class="row-fluid">
 					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center"> 
-						<h4 class="text-muted" id="instructionsText">Select and submit the goal you believe should be the priority in your community.</h4>
-						<br>
+						<h3 class="text-muted">Select and submit the goal you believe should be the priority in your community.</h3>
 					</div>
 				</div>
 			</div>
@@ -36,20 +35,18 @@
 			<div class="container-fluid">
 				<div class="row-fluid">
 					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
-						<br> 
-						<h3 id="noGoals1">There are currently no goals set by your community.</h3>
-						<h4 id="noGoals2">Be the first to submit one, and then spread the word about PowerShare!</h4>
+						<h2>There are currently no goals set by your community.</h2>
+						<h3>Be the first to submit one, and then spread the word about <span class="purple">PowerShare</span>!</h3>
 						<br>
 					</div>
 				</div>
 		<% end %>
 </section>
 
-		<div class="container-fluid newGoalSection">
+		<div class="container-fluid" id="newGoalSection">
 			<div class="row-fluid">
 				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
-					<br>
-					<h4 id="newGoalHeader" class="text-muted">If you do not see your top goal, please submit it below:</h4>
+					<h3 class="text-muted">If you do not see your top goal, please submit it below:</h3>
 				</div>
 			</div>
 		</div>
@@ -58,31 +55,8 @@
 	<%= render 'shared/micropost_form' %>
 <% end %>
 
-<script>
-
-	$(document).ready(function() {
-	  $('#goalsTable').DataTable({});
-	});
-
-	function submitPriority() {
-		var priorities = document.getElementsByName("selectable_goal");
-		var newPriority;
-
-	  for (var i = 0; i < priorities.length; i++) {
-	    if (priorities[i].checked) {
-	      newPriority = priorities[i].value;
-	    }
-	  }
-
-	  if (newPriority === undefined) {
-	  	newPriority = "error";
-	  }
-
-		$.ajax({ 
-		  type: 'PATCH', 
-		  url: 'users/update_priority', 
-		  data: {'new_priority': newPriority}
-		});
-	}
-
-</script>
+<div class="scroll-top-wrapper ">
+  <span class="scroll-top-inner">
+    <i class="fa fa-2x fa-arrow-circle-up"></i>
+  </span>
+</div>
