@@ -69,6 +69,7 @@ class UsersController < ApplicationController
         if current_user.update_attribute(:priority, params[:new_priority])
           old_goal.decrement!(:votes)
           new_goal.increment!(:votes)
+          flash[:success] = "Your priority has been updated!"
         end
       else
         flash[:danger] = "You have already selected this goal to be your community's priority."

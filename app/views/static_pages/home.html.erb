@@ -1,59 +1,59 @@
 <% provide(:title, 'Home') %>
 
 <section id="homePage">
-	<% if logged_in? %>
-		<div class="container-fluid" id="topSlot">
-			<div class="row-fluid">
-				<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 col-md-offset-2 col-lg-offset-2 text-center">
-					<hr class="white"> 
-					<h1 id="communityName" class="textHuge"><%= current_user.community.name %></h1>
-					<hr class="white">
-				</div>
-			</div>
-
-			<div class="row-fluid">
-				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center"> 
-					<% if current_user.priority != "none" %>
-						<h2><em>Your Current Priority:</em></h2>
-						<h3 id="currentPriority"><%= current_user.priority %></h3>
-						<br>
-					<% end %>
-				</div>
-			</div>
-		</div>
-
-		<% if @feed_items.any? %>
-			<div class="container-fluid">
-				<div class="row-fluid">
-					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center"> 
-						<h3 class="text-muted">Select and submit the goal you believe should be the priority in your community.</h3>
-					</div>
-				</div>
-			</div>
-			<%= render 'shared/feed' %>
-		<% else %>
-			<div class="container-fluid">
-				<div class="row-fluid">
-					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
-						<h2>There are currently no goals set by your community.</h2>
-						<h3>Be the first to submit one, and then spread the word about <span class="purple">PowerShare</span>!</h3>
-						<br>
-					</div>
-				</div>
-		<% end %>
-</section>
-
-		<div class="container-fluid" id="newGoalSection">
-			<div class="row-fluid">
-				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
-					<h3 class="text-muted">If you do not see your top goal, please submit it below:</h3>
-				</div>
+	<div class="container-fluid bs-calltoaction bs-calltoaction-purple">
+		<div class="row-fluid">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 cta-contents text-center">
+				<hr class="white"> 
+				<h1><%= current_user.community.name %></h1>
+				<hr class="white">
+				<% if current_user.priority != "none" %>
+					<h2><em>Your Current Priority:</em></h2>
+					<h3 id="currentPriority"><%= current_user.priority %></h3>
+					<br>
+				<% end %>
 			</div>
 		</div>
 	</div>
 
-	<%= render 'shared/micropost_form' %>
-<% end %>
+	<% if @feed_items.any? %>
+		<div class="container-fluid">
+			<div class="row-fluid">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center"> 
+					<h3 class="text-muted">Select and submit the goal you believe should be the priority in your community.</h3>
+				</div>
+			</div>
+			<div class="row-fluid">
+				<div class="col-xs-12 col-sm-8 col-md-6 col-lg-6 col-sm-offset-2 col-md-offset-3 col-lg-offset-3 text-center">	
+					<% flash.each do |message_type, message| %>
+						<br>
+      			<div class="alert alert-<%= message_type %> text-center" id="newGoalError"><%= message %></div>
+    			<% end %>
+				</div>
+			</div>
+		</div>
+		<%= render 'shared/feed' %>
+	<% else %>
+		<div class="container-fluid">
+			<div class="row-fluid">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+					<h2>There are currently no goals set by your community.</h2>
+					<h3>Be the first to submit one, and then spread the word about <span class="purple">PowerShare</span>!</h3>
+					<br>
+				</div>
+			</div>
+	<% end %>
+</section>
+
+<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+			<h1 class="text-muted">If you do not see your top goal, <%= link_to "submit it to PowerShare.", new_goal_path %> </h1>
+			<br>
+			<br>
+		</div>
+	</div>
+</div>
 
 <div class="scroll-top-wrapper ">
   <span class="scroll-top-inner">

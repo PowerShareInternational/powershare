@@ -35,9 +35,6 @@ gem 'font-awesome-rails'
 gem 'will_paginate', '3.0.7'
 gem 'bootstrap-will_paginate', '0.0.10'
 
-# Datatables
-gem 'jquery-datatables-rails', '~> 3.3.0'
-
 # Create fake information for seeding the database
 gem 'faker', '1.4.2'
 

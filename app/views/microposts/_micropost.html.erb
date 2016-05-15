@@ -1,44 +1,29 @@
-<!--<tr>
-	<td><label>
-		<%= radio_button_tag "selectable_goal", micropost.content %>
-		<i class="fa fa-check fa-2x"></i>
-		<span>
-			<span class="goalContent"><%= micropost.content %></span>
-			<p> </p>
-			<p class="timeAgoText"><small><%= "(submitted "+time_ago_in_words(micropost.created_at)+" ago)" %></small></p>
-			<% if current_user.official == false %>
-				<p class="viewResponsesText"><%= link_to "View Responses", micropost %></p>
-			<% elsif current_user.official == true %>
-				<p class="viewResponsesText"><%= link_to "Write a Response", micropost %></p>
-			<% end %>
-		</span>
-	</label></td>
-	<td><span><strong><%= micropost.votes %></strong></span></td>
-	<% if micropost.achieved %>
-		<td><span class="achievedText">Achieved!</span></td>
-	<% else %>
-		<td><span></span></td>
-	<% end %>
-</tr>-->
-
 <% if micropost.achieved == false %>
 	<tr>
 		<td>
 			<div class="bs-calltoaction bs-calltoaction-info">
 			  <div class="row">
-			    <div class="col-md-9 cta-contents">
+			  	<div class="col-lg-1 col-lg-offset-2">
+			  		<label>
+			  			<%= radio_button_tag "selectable_goal", micropost.content %>
+			  			<i class="fa fa-check fa-4x"></i>
+			  		</label>
+			  	</div>
+			    <div class="col-lg-6 cta-contents">
 			      <h3 class="cta-title"><%= micropost.content %></h3>
 			      <div class="cta-desc">
 			        <h3>Current number of votes: <%= micropost.votes %></h3>
 			        <h4><%= "(submitted "+time_ago_in_words(micropost.created_at)+" ago)" %></h4>
 			      </div>
 			    </div>
-			    <div class="col-md-3 cta-button">
-			    	<% if micropost.achieved %>
-			    		<h2 class="achieved">ACHIEVED!</h2>
-			    	<% end %>
-			      <a href="#" class="btn btn-lg btn-block btn-dinfo">Go for It!</a>
-			     </div>
+			    <div class="col-lg-3 cta-button">
+			    	<%= link_to "Submit Priority", "#", class: "btn btn-lg btn-block btn-info", :onclick => "submitPriority()" %>
+			    	<% if current_user.official == false %>
+							<%= link_to "View Responses", micropost, class: "btn btn-lg btn-block btn-info" %>
+						<% else %>
+							<%= link_to "Write a Responses", micropost, class: "btn btn-lg btn-block btn-info" %>
+						<% end %>
+			    </div>
 			  </div>
 			</div>
 		</td>
@@ -48,18 +33,27 @@
 		<td>
 			<div class="bs-calltoaction bs-calltoaction-success">
 			  <div class="row">
-			    <div class="col-md-9 cta-contents">
+			  	<div class="col-lg-1 col-lg-offset-2">
+			  		<label>
+			  			<%= radio_button_tag "selectable_goal", micropost.content %>
+			  			<i class="fa fa-check fa-4x"></i>
+			  		</label>
+			  	</div>
+			    <div class="col-lg-6 cta-contents">
 			      <h3 class="cta-title"><%= micropost.content %></h3>
 			      <div class="cta-desc">
 			        <h3>Current number of votes: <%= micropost.votes %></h3>
 			        <h4><%= "(submitted "+time_ago_in_words(micropost.created_at)+" ago)" %></h4>
 			      </div>
 			    </div>
-			    <div class="col-md-3 cta-button">
-			    	<% if micropost.achieved %>
-			    		<h2 class="achieved">ACHIEVED!</h2>
-			    	<% end %>
-			      <a href="#" class="btn btn-lg btn-block btn-success">Go for It!</a>
+			    <div class="col-lg-3 cta-button">
+			    	<h2 class="achieved">ACHIEVED!</h2>
+			    	<%= link_to "Submit Priority", "#", class: "btn btn-lg btn-block btn-success", :onclick => "submitPriority()" %>
+			      <% if current_user.official == false %>
+							<%= link_to "View Responses", micropost, class: "btn btn-lg btn-block btn-success" %>
+						<% else %>
+							<%= link_to "Write a Responses", micropost, class: "btn btn-lg btn-block btn-success" %>
+						<% end %>
 			     </div>
 			  </div>
 			</div>

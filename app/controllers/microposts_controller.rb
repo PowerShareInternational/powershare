@@ -9,6 +9,10 @@ class MicropostsController < ApplicationController
     @micropost = Micropost.find(params[:id])
   end
 
+  def new
+    @micropost = Micropost.new
+  end
+
 	def create
 		@micropost = current_user.microposts.build(micropost_params)
 		@micropost.community_id = current_user.community_id
@@ -17,7 +21,7 @@ class MicropostsController < ApplicationController
     else
     	flash[:danger] = "If you'd like to submit a new goal, please complete the entire form."
     end
-    redirect_to root_url
+    render 'new'
 	end
 
 	def update

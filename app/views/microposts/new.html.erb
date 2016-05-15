@@ -1,4 +1,11 @@
-<div class="container-fluid newGoalSection">
+<% provide(:title, 'New Goal') %>
+
+<div class="container-fluid" id="newGoalSection">
+	<div class="row-fluid">
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+			<h1 class="text-muted">Submit a new goal for your community to prioritize.</h1>
+		</div>
+	</div>
 	<div class="row-fluid">
 		<div class="col-xs-12 col-sm-8 col-md-6 col-lg-6 col-sm-offset-2 col-md-offset-3 col-lg-offset-3 text-center">
 			<% flash.each do |message_type, message| %>
