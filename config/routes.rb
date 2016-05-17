@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   get 'home' => 'static_pages#home'
 
   get 'new_goal' => 'microposts#new'
+
+  get 'show_account' => 'users#show_account'
   
   get 'signup' => 'users#new'
   post 'users/:id' => 'users#activate'

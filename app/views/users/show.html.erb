@@ -1,22 +1,30 @@
 <% provide(:title, @user.first_name+" "+@user.last_name) %>
-<div class="container-fluid" id="profileSection">
+
+<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="col-lg-8 col-lg-offset-4">
+			<br>
+			<button type="button" class="close btn-lg" data-dismiss="modal"><i class="fa fa-times-circle fa-lg" aria-hidden="true"></i></button>
+		</div>
+	</div>
+	<div cla
 	<div class="row-fluid">
 		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center"> 
-			<h2><strong><%= @user.first_name+" "+@user.middle_name+" "+@user.last_name %></strong></h2>
-			<h3><%= @user.email %></h3>
-			<h3><%= @user.address %></h3>
-			<h3><%= @user.community.name %></h3>
-			<h3><%= @user.zip %></h3>
+			<h3><strong><%= @user.first_name+" "+@user.middle_name+" "+@user.last_name %></strong></h3>
+			<h4><em>Email:</em> <%= @user.email %></h4>
+			<h4><em>Address:</em> <%= @user.address %></h4>
+			<h4><em>Community: </em><%= @user.community.name %></h4>
+			<h4><em>Zip code: </em><%= @user.zip %></h4>
 			<% if current_user.id == @user.id %>
 				<h4><%= link_to "(Update Account Information)", edit_user_path(current_user) %></h4>
 			<% end %>
 			<hr>
 
     	<% if @user.microposts.any? %>
-      	<h3>Goals you have submitted: (<%= @user.microposts.count %>)</h3>
+      	<h3>Goals submitted: (<%= @user.microposts.count %>)</h3>
       	<br>
       		<% @microposts.each do |f| %>
-        		<h4><%= link_to f.content, f %></h4>
+        		<h4><%= f.content %></h4>
         	<% end %>
       	<%= will_paginate @microposts %>
     	<% end %>

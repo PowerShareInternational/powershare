@@ -1,0 +1,40 @@
+<% provide(:title, @user.first_name+" "+@user.last_name) %>
+<% if logged_in? %>
+  <%= render 'layouts/header' %>
+<% end %>
+
+<div class="container-fluid" id="profileSection">
+	<div cla
+	<div class="row-fluid">
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center"> 
+			<h2><strong><%= @user.first_name+" "+@user.middle_name+" "+@user.last_name %></strong></h2>
+			<h3><em>Email:</em> <%= @user.email %></h3>
+			<h3><em>Address:</em> <%= @user.address %></h3>
+			<h3><em>Community: </em><%= @user.community.name %></h3>
+			<h3><em>Zip code: </em><%= @user.zip %></h3>
+			<% if current_user.id == @user.id %>
+				<h3><%= link_to "(Update Account Information)", edit_user_path(current_user) %></h3>
+			<% end %>
+			<hr>
+
+    	<% if @user.microposts.any? %>
+      	<h3>Goals submitted: (<%= @user.microposts.count %>)</h3>
+      	<br>
+      		<% @microposts.each do |f| %>
+        		<h3><%= link_to f.content, f, "data-toggle" => "modal", "data-target" => "#goalModal" %></h3>
+        	<% end %>
+      	<%= will_paginate @microposts %>
+    	<% end %>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="goalModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header"></div>
+			<div class="modal-body"></div>
+			<div class="modal-footer"></div>
+		</div>
+  </div>
+</div>

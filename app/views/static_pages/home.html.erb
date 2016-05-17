@@ -1,4 +1,7 @@
 <% provide(:title, 'Home') %>
+<% if logged_in? %>
+  <%= render 'layouts/header' %>
+<% end %>
 
 <section id="homePage">
 	<div class="container-fluid bs-calltoaction bs-calltoaction-purple">
@@ -48,11 +51,24 @@
 <div class="container-fluid">
 	<div class="row-fluid">
 		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
-			<h1 class="text-muted">If you do not see your top goal, <%= link_to "submit it to PowerShare.", new_goal_path %> </h1>
+			<h1 class="text-muted">If you do not see your top goal, <%= link_to "submit it to PowerShare!", new_goal_path, "data-toggle" => "modal", "data-target" => "#newGoalModal" %></h1>
+			<br>
+			<br>
+			<br>
 			<br>
 			<br>
 		</div>
 	</div>
+</div>
+
+<div class="modal fade" id="newGoalModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header"></div>
+			<div class="modal-body"></div>
+			<div class="modal-footer"></div>
+		</div>
+  </div>
 </div>
 
 <div class="scroll-top-wrapper ">

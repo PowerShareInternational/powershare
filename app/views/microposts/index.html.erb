@@ -1,7 +1,18 @@
 <% provide(:title, 'All goals') %>
+<% if logged_in? %>
+  <%= render 'layouts/header' %>
+<% end %>
 
 <section id="allGoalsSection">
   <div class="container-fluid">
+    <div class="row-fluid">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+        <% flash.each do |message_type, message| %>
+          <br>
+          <div class="alert alert-<%= message_type %> text-center" id="newGoalError"><%= message %></div>
+        <% end %>
+      </div>
+    </div>
     <div class="row-fluid">
       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
         <h3>Goals pending approval:</h3>

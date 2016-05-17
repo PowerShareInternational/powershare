@@ -19,9 +19,9 @@
 			    <div class="col-lg-3 cta-button">
 			    	<%= link_to "Submit Priority", "#", class: "btn btn-lg btn-block btn-info", :onclick => "submitPriority()" %>
 			    	<% if current_user.official == false %>
-							<%= link_to "View Responses", micropost, class: "btn btn-lg btn-block btn-info" %>
+							<%= link_to "View Responses", micropost, class: "btn btn-lg btn-block btn-info", "data-toggle" => "modal", "data-target" => "#goalModal" %>
 						<% else %>
-							<%= link_to "Write a Responses", micropost, class: "btn btn-lg btn-block btn-info" %>
+							<%= link_to "Write a Responses", micropost, class: "btn btn-lg btn-block btn-info", "data-toggle" => "modal", "data-target" => "#goalModal" %>
 						<% end %>
 			    </div>
 			  </div>
@@ -50,9 +50,9 @@
 			    	<h2 class="achieved">ACHIEVED!</h2>
 			    	<%= link_to "Submit Priority", "#", class: "btn btn-lg btn-block btn-success", :onclick => "submitPriority()" %>
 			      <% if current_user.official == false %>
-							<%= link_to "View Responses", micropost, class: "btn btn-lg btn-block btn-success" %>
+							<%= link_to "View Responses", micropost, class: "btn btn-lg btn-block btn-success", "data-toggle" => "modal", "data-target" => "#goalModal" %>
 						<% else %>
-							<%= link_to "Write a Responses", micropost, class: "btn btn-lg btn-block btn-success" %>
+							<%= link_to "Write a Responses", micropost, class: "btn btn-lg btn-block btn-success", "data-toggle" => "modal", "data-target" => "#goalModal" %>
 						<% end %>
 			     </div>
 			  </div>
@@ -60,3 +60,13 @@
 		</td>
 	</tr>
 <% end %>
+
+<div class="modal fade" id="goalModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header"></div>
+			<div class="modal-body"></div>
+			<div class="modal-footer"></div>
+		</div>
+  </div>
+</div>

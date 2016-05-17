@@ -1,40 +1,51 @@
 <% provide(:title, 'Edit account') %>
+<% if logged_in? %>
+  <%= render 'layouts/header' %>
+<% end %>
 
 <div class="container-fluid" id="updateAccountSection">
 	<div class="row-fluid">
-  		<div class="col-xs-10 col-sm-8 col-md-6 col-lg-4 col-xs-offset-1 col-sm-offset-2 col-md-offset-3 col-lg-offset-4 text-center"> 
-    		<h1>Update Your Account Information</h1>
-	    	<%= form_for(@user) do |f| %>
-			  	<%= render 'shared/error_messages', object: f.object %>
-			  	<%= f.label :first_name, class: 'formLabel' %>
-			  	<%= f.text_field :first_name, class: 'form-control' %>
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+        <% flash.each do |message_type, message| %>
+          <br>
+          <div class="alert alert-<%= message_type %> text-center" id="newGoalError"><%= message %></div>
+        <% end %>
+      </div>
+    </div>
+	<div class="row-fluid">
+  	<div class="col-xs-10 col-sm-8 col-md-6 col-lg-4 col-xs-offset-1 col-sm-offset-2 col-md-offset-3 col-lg-offset-4 text-center"> 
+			<h2>Update Your Account Information</h2>
+	  	<%= form_for(@user) do |f| %>
+		  	<%= render 'shared/error_messages', object: f.object %>
+		  	<h4><%= f.label :first_name, class: 'formLabel' %></h4>
+		  	<%= f.text_field :first_name, class: 'form-control' %>
 
-			  	<%= f.label :middle_name, class: 'formLabel' %>
-			  	<%= f.text_field :middle_name, class: 'form-control' %>
+		  	<h4><%= f.label :middle_name, class: 'formLabel' %></h4>
+		  	<%= f.text_field :middle_name, class: 'form-control' %>
 
-			  	<%= f.label :last_name, class: 'formLabel' %>
-			  	<%= f.text_field :last_name, class: 'form-control' %>
+		  	<h4><%= f.label :last_name, class: 'formLabel' %></h4>
+		  	<%= f.text_field :last_name, class: 'form-control' %>
 
-			  	<%= f.label :address, class: 'formLabel' %>
-			  	<%= f.text_field :address, class: 'form-control' %>
+		  	<h4><%= f.label :address, class: 'formLabel' %></h4>
+		  	<%= f.text_field :address, class: 'form-control' %>
 
-			  	<%= f.label :zip, class: 'formLabel' %>
-			  	<%= f.text_field :zip, class: 'form-control' %>
+		  	<h4><%= f.label :zip, class: 'formLabel' %></h4>
+		  	<%= f.text_field :zip, class: 'form-control' %>
 
-			  	<%= f.label :email, class: 'formLabel' %>
-			  	<%= f.email_field :email, class: 'form-control' %>
+		  	<h4><%= f.label :email, class: 'formLabel' %></h4>
+		  	<%= f.email_field :email, class: 'form-control' %>
 
-			  	<%= f.label :password, class: 'formLabel' %>
-			  	<%= f.password_field :password, class: 'form-control' %>
+		  	<h4><%= f.label :password, class: 'formLabel' %></h4>
+		  	<%= f.password_field :password, class: 'form-control' %>
 
-			  	<%= f.label :password_confirmation, class: 'formLabel' %>
-			  	<%= f.password_field :password_confirmation, class: 'form-control' %>
-			  	<br>
+		  	<h4><%= f.label :password_confirmation, class: 'formLabel' %></h4>
+		  	<%= f.password_field :password_confirmation, class: 'form-control' %>
+		  	<br>
 
-			  	<%= f.submit "Save Changes", class: "btn btn-primary submitButton" %>
-			  	<br>
-			  	<br>
+		  	<%= f.submit "Save Changes", class: "btn btn-lg btn-success submitButton" %>
+		  	<br>
+		  	<br>
 			<% end %>
-  		</div>
+		</div>
 	</div>
 </div>

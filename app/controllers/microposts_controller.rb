@@ -21,7 +21,7 @@ class MicropostsController < ApplicationController
     else
     	flash[:danger] = "If you'd like to submit a new goal, please complete the entire form."
     end
-    render 'new'
+    redirect_to root_url
 	end
 
 	def update
@@ -31,7 +31,7 @@ class MicropostsController < ApplicationController
         @micropost.update_attribute(:approved, true)
         flash[:success] = "The goal has been approved."
   	  else
-  		  flash[:danger]= "Please translate the details of the goal."
+  		  flash[:danger]= "Please transcribe the details of the goal."
       end
   	end
   	redirect_to microposts_url
