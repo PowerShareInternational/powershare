@@ -38,6 +38,14 @@ function submitPriority() {
 	$.ajax({ 
 	  type: 'PATCH', 
 	  url: 'users/update_priority', 
-	  data: {'new_priority': newPriority}
+	  data: { 'new_priority': newPriority }
 	});
+}
+
+function submitResponse() {
+	$.ajax({
+		type: 'PATCH',
+		url: 'microposts/new_response',
+		data: { 'new_response': $("#newResponse").val() }
+	})
 }

@@ -32,7 +32,7 @@
 					<%= label_tag "Comment:", nil, class: "newGoalLabel" %>
 				  <%= text_area_tag 'newResponse', nil, class: 'form-control' %>
 				  <br>
-				  <%= button_tag "Submit Response", class: "btn btn-primary btn-lg btn-success", id: "submitPriorityButton",  data: { confirm: "Are you sure you'd like to provide this response?" } %>
+				  <%= button_tag "Submit Response", class: "btn btn-primary btn-lg btn-success", id: "submitPriorityButton", :onclick => "submitResponse()" %>
 				  <br>
 				  <br>
 				</div>

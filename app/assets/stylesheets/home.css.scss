@@ -3,6 +3,16 @@ body {
   font-family: "Open Sans";
 }
 
+table.dataTable thead th.sorting, 
+table.dataTable thead th.sorting_asc, 
+table.dataTable thead th.sorting_desc {
+  background : none;
+}
+
+.dataTable > thead > tr > th[class*="sort"]::after {
+	display: none
+}
+
 .white {
   color: white;
 }

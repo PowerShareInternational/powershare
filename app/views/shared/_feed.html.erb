@@ -1,7 +1,8 @@
+<br>
 <div class="container">
 	<div class="row">
-  	<div class="col-sm-12 text-center">
-  		<table class="table" id="table">
+  	<div class="col-sm-12">
+  		<table class="responsive no-wrap" id="goalTable" cellspacing="0" width="100%">
   			<thead>
   				<tr>
   					<th></th>
@@ -14,3 +15,11 @@
   	</div>
   </div>
 </div>
+
+<script>
+  $(document).ready(function() {
+    $('#goalTable').DataTable({
+      responsive: true
+    });
+  });
+</script>

@@ -67,3 +67,27 @@ Micropost.create!(
 	responses: ["Councillor Jane Smith writes: I think this is a really good goal, and something we should be prioritizing."],
 	user_id: 1,
 	community_id: 1)
+
+Micropost.create!(
+	content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,",
+	description: "Medford High School should be improved",
+	measurement: "60th by US News",
+	achieved_by: Date.new(2016, 12, 25),
+	votes: 107,
+	achieved: false,
+	approved: true,
+	responses: ["Councillor Jane Smith writes: I think this is a really good goal, and something we should be prioritizing.", "Another Councillor writes something else"],
+	user_id: 2,
+	community_id: 1)
+
+Micropost.create!(
+	content: "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, ",
+	description: "Medford High School should be improved",
+	measurement: "60th by US News",
+	achieved_by: Date.new(2016, 12, 25),
+	votes: 107,
+	achieved: false,
+	approved: true,
+	responses: [],
+	user_id: 3,
+	community_id: 1)

@@ -6,18 +6,17 @@ Rails.application.routes.draw do
   get 'contact' => 'static_pages#contact'
   get 'home' => 'static_pages#home'
 
-  get 'new_goal' => 'microposts#new'
-
-  get 'show_account' => 'users#show_account'
-  
   get 'signup' => 'users#new'
+  get 'show_account' => 'users#show_account'
   post 'users/:id' => 'users#activate'
+  patch 'users/update_priority' => 'users#update_priority'
   
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
 
-  patch 'users/update_priority' => 'users#update_priority'
+  get 'new_goal' => 'microposts#new'
+  patch 'microposts/new_response' => 'microposts#new_response'
 
   resources :users
   resources :microposts

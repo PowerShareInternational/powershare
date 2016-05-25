@@ -31,6 +31,9 @@ gem 'bootstrap-sass', '~> 3.3.1'
 # Font Awesome
 gem 'font-awesome-rails'
 
+# Datatables
+gem 'jquery-datatables-rails', '~> 3.3.0'
+
 # Content pagination
 gem 'will_paginate', '3.0.7'
 gem 'bootstrap-will_paginate', '0.0.10'

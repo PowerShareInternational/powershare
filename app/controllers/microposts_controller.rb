@@ -44,8 +44,11 @@ class MicropostsController < ApplicationController
 	end
 
   def new_response
-    flash[:success] = params[:comment]
-    redirect_to :back
+    
+
+    respond_to do |format|
+      format.js {render inline: "location.reload();" }
+    end
   end
 
 	private
