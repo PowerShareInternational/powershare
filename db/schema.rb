@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160403160026) do
+ActiveRecord::Schema.define(version: 20160609163937) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 20160403160026) do
     t.integer  "community_id"
     t.boolean  "active",          default: false
     t.text     "priority",        default: "none"
-    t.boolean  "official",        default: false
+    t.boolean  "official"
     t.text     "title"
   end
 

@@ -45,6 +45,10 @@
               <% end %> <!-- login form -->
               
               <%= form_for(@user, :html => {:id => "register-form", :style => "display: none;"}) do |f| %>
+                <%= f.check_box :official %>
+                <%= f.label :official, " I'm an elected official.", id: "officialCheckbox" %>
+                <br>
+                <br>
                 <%= f.text_field :first_name, class: "form-control", :placeholder => "First name" %>
                 <br>
                 <%= f.text_field :middle_name, class: "form-control", :placeholder => "Middle name" %>

@@ -12,6 +12,9 @@
         <% @users.where({community_id: current_user.community_id}).each do |user| %>
           <% if user.active == false %>
             <li><%= link_to user.last_name+", "+user.first_name+" "+user.middle_name, user %></li>
+            <% if user.official == true %>
+              <li><strong><em>Elected Official</em></strong></li>
+            <% end %>
             <li><%= user.email %></li>
             <li><%= user.address %></li>
             <li><%= user.community.name %></li>
