@@ -33,10 +33,8 @@
                 <%= f.password_field :password, class: "form-control", :placeholder => "Password" %>
 
                 <div class="text-center">
-                  <%= f.label :remember_me, id: "rememberMe" do %>
-                    <%= f.check_box :remember_me %>
-                      Remember me on this device
-                  <% end %>
+                  <%= f.check_box :remember_me %>
+                  <%= f.label :remember_me, id: "rememberMe"%>
                 </div>
 
                 <div class="row">
